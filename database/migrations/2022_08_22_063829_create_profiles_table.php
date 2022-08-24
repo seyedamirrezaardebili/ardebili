@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone',11);
-            $table->string('mobile')->nullable();
+            $table->string('phone');
+            $table->string('fax')->nullable();
+            $table->string('mobile',11)->nullable();
             $table->longText('about_me');
             $table->bigInteger('number_project');
             $table->bigInteger('profit');

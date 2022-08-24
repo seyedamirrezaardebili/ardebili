@@ -14,7 +14,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('aminpanel')->group(function (){
-    Route::get('/', [AdminController::class,'index']);
-    Route::get("profile",[ProfileController::class,'index']);
+Route::prefix('adminpanel')->group(function (){
+    Route::get('/', [AdminController::class,'index'])->name('adminpanel');
+   //profile route
+    Route::get("profile",[ProfileController::class,'index'])->name('adminpanel.profile');
+    Route::post("profile",[ProfileController::class,'index'])->name('adminpanel.profile');
+    Route::put("profile",[ProfileController::class,'index']);
+    Route::patch("profile",[ProfileController::class,'index']);
+    // article route
+    Route::post("article",[ProfileController::class,'index'])->name('adminpanel.article');
+    Route::put("article",[ProfileController::class,'index']);
+    Route::patch("article",[ProfileController::class,'index']);
+
+    
+});
+
+Route::get('/',function(){
+  return  view('index');
 });
