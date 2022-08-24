@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('adminpanel')->group(function (){
+Route::prefix('adminpanel')->middleware('auth:sanctum')->group(function (){
     Route::get('/', [AdminController::class,'index'])->name('adminpanel');
    //profile route
     Route::get("profile",[ProfileController::class,'index'])->name('adminpanel.profile');
