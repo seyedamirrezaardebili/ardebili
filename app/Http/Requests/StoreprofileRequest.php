@@ -32,6 +32,7 @@ class StoreprofileRequest extends FormRequest
             'profit'=>'numeric|sometimes',
             'Fund'=>'numeric|sometimes',
             'Growth'=>'numeric|sometimes',
+            'file'=>'file',
         ];
     }
 }

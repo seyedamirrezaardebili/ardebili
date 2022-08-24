@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file_managers', function (Blueprint $table) {
+        Schema::create('File_managers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });

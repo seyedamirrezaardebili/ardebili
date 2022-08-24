@@ -16,7 +16,7 @@ use Morilog\Jalali\Jalalian;
 class BaseModel extends Model
 {
     use HasFactory;
-    /** 
+    /**
     * @return string
     */
    public function getCreatedAtAttribute($value)
@@ -111,9 +111,13 @@ class BaseModel extends Model
     * @param $id
     * @return Model|null
     */
-   public function fetch($id): ?Model
+   public function fetchOrFail($id): ?Model
    {
        return $this->query()->findOrFail($id);
    }
+    public function fetch($id): ?Model
+    {
+        return $this->query()->where('id',$id)->first();
+    }
 
 }

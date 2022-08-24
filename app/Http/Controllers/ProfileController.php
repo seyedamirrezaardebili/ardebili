@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\profile;
 use App\Http\Requests\StoreprofileRequest;
 use App\Http\Requests\UpdateprofileRequest;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class ProfileController extends Controller
 {
+    protected profile $profileModel;
+    const idProfile=1;
+    public function __construct(profile $model){
+        return $this->profileModel=$model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +34,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,20 +43,20 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\StoreprofileRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreprofileRequest $request)
+    public function store(StoreprofileRequest $request )
     {
-        //
+      return  view('profile');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\profile  $profile
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function show(profile $profile)
+    public function show(): Application|Factory|View
     {
-        //
+        $data=$this->profileModel->fetch(self::idProfile);
+       return view('editprofile');
     }
 
     /**
@@ -58,7 +67,7 @@ class ProfileController extends Controller
      */
     public function edit(profile $profile)
     {
-        //
+
     }
 
     /**

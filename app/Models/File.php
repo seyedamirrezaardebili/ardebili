@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class file extends Model
+class File extends BaseModel
 {
     use HasFactory, SoftDeletes;
 
-    public function profile()
+    public function profile(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(profile::class);
     }

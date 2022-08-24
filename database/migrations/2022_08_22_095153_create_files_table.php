@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('Files', function (Blueprint $table) {
             $table->id();
             $table->float('size')->nullable();
             $table->string('dimension')->nullable();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\File;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->bigInteger('profit');
             $table->bigInteger('Growth');
             $table->bigInteger('Fund');
-            $table->foreignIdFor(file::class);
+            $table->foreignIdFor(File::class)->nullable();
             $table->softdeletes();
             $table->timestamps();
         });
