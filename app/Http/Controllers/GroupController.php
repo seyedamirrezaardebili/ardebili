@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreGroupRequest;
-use App\Http\Requests\UpdateGroupRequest;
+use Carbon\Carbon;
 use App\Models\Group;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreGroupRequest;
 
 class GroupController extends Controller
 {
+    protected Group $groupmodel;
+
+    public function __construct(Group $groupmodel)
+    {
+          return  $this->groupmodel=$groupmodel;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        return view('group');
     }
 
     /**
@@ -25,7 +33,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('createGroup');
     }
 
     /**
@@ -36,7 +44,15 @@ class GroupController extends Controller
      */
     public function store(StoreGroupRequest $request)
     {
-        //
+        $input=$request->validated();
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $day = Carbon::now()->day;
+        $date = 'images/groups/'.$year . '-' . $month . '-' . $day;
+        $path=Storage::put($date,$request->file('File'));
+        $input['File']=$path;
+        $data=$this->groupmodel->store($input);
+        return redirect('adminpanel/group')->with('data',$data);
     }
 
     /**
@@ -47,7 +63,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        
     }
 
     /**
@@ -68,7 +84,7 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGroupRequest $request, Group $group)
+    public function update(StoreGroupRequest $request, Group $group)
     {
         //
     }

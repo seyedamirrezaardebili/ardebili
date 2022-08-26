@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('url');
             $table->string('alt')->nullable();
             $table->string('extension',6);
+            $table->enum('status',['draft','published','deleted']);
             $table->softDeletes();
             $table->timestamps();
         });

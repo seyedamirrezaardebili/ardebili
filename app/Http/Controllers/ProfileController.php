@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\profile;
+use Illuminate\Routing\Controller;
+use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\Factory;
 use App\Http\Requests\StoreprofileRequest;
 use App\Http\Requests\UpdateprofileRequest;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
     protected profile $profileModel;
+    
     const idProfile=1;
+
     public function __construct(profile $model){
         return $this->profileModel=$model;
     }
@@ -24,7 +29,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        $data=$this->profileModel->fetch(self::idProfile);
+        return view('editprofile')->with('data',$data);
     }
 
     /**
@@ -34,7 +40,8 @@ class ProfileController extends Controller
      */
     public function create()
     {
-
+        $data=$this->profileModel->fetch(self::idProfile);
+        return view('editprofile')->with('data',$data);
     }
 
     /**
@@ -45,7 +52,16 @@ class ProfileController extends Controller
      */
     public function store(StoreprofileRequest $request )
     {
-      return  view('profile');
+        $input=$request->validated();
+        $id=(int)self::idProfile;
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $day = Carbon::now()->day;
+        $date = 'image/profile/'.$year . '-' . $month . '-' . $day;
+        $path=Storage::put($date,$request->file('File'));
+        $input['file']=$path;
+        $data=$this->profileModel->updateAndCreate($id,$input);
+        return redirect('adminpanel/profile')->with('data',$data);
     }
 
     /**
@@ -53,11 +69,11 @@ class ProfileController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function show(): Application|Factory|View
+    public function show()
     {
-        $data=$this->profileModel->fetch(self::idProfile);
-       return view('editprofile');
+        
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -77,7 +93,7 @@ class ProfileController extends Controller
      * @param  \App\Models\profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateprofileRequest $request, profile $profile)
+    public function update(StoreprofileRequest $request, profile $profile)
     {
         //
     }

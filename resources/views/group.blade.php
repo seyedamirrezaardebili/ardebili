@@ -14,8 +14,7 @@ adminpanel
             <h1 class="h2">group</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">ساخت</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">ادیت</button>
+                      <a href='{{ route("adminpanel.group.input") }}'>  <button type="button" class="btn btn-sm btn-outline-secondary">ساخت</button></a>
                 </div>
             </div>
         </div>

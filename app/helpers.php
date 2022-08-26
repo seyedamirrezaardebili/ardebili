@@ -99,13 +99,13 @@ if (!function_exists('uploadFile')) {
      * @param null $folder
      * @return string
      */
-    function uploadFile(\Illuminate\Filesystem\Filesystem $filesystem, $folder = null)
+    function uploadFile( $folder = null)
     {
         $upload = request()->file('file');
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
         $day = Carbon::now()->day;
-        $date = $year . '-' . $month . '-' . $day;
+        $date = $year . '-' . $month . '-' . $day.generate_otp();
         if ($folder != null)
             $filePath = "/upload/files/{$folder}/{$date}";
         else
@@ -113,9 +113,6 @@ if (!function_exists('uploadFile')) {
 
         File::makeDirectory(public_path($filePath), 0755, true, true);
         $filename = $upload->getClientOriginalName();
-        if ($filesystem->exists(public_path("{$filePath}/{$filename}"))) {
-            $filename = Carbon::now()->timestamp . "-{$filename}";
-        }
         $upload->move(public_path($filePath), $filename);
         return "{$filePath}/{$filename}";
     }

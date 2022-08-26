@@ -27,12 +27,14 @@ class StoreprofileRequest extends FormRequest
             'name'=>'string|required',
             'phone'=>'numeric|required',
             'mobile'=>'numeric|sometimes',
+            'email'=>'email|sometimes',
+            'fax'=>'numeric|sometimes',
             'about_me'=>'string|required',
-            'number_project'=>'numeric|sometimes',
-            'profit'=>'numeric|sometimes',
-            'Fund'=>'numeric|sometimes',
-            'Growth'=>'numeric|sometimes',
-            'file'=>'file',
+            'number_project'=>'numeric|required',
+            'profit'=>'numeric|required',
+            'Fund'=>'numeric|required',
+            'Growth'=>'numeric|required',
+            'File'=>'image|sometimes',
         ];
     }
 }

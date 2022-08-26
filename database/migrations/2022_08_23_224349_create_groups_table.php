@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->longtext('body');
+            $table->longtext('File');
+            $table->string('title');
+            $table->string('slug')->nullable();
+            $table->enum('status',['draft','published','deleted']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
