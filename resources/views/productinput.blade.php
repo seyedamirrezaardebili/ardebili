@@ -10,7 +10,7 @@
 @endsection()
 
 @section('main')
-        <form method="post" action="{{route('adminpanel.product.input')}}"  enctype="multipart/form-data" class='gap-3'>
+        <form method="post" action="{{ route('adminpanel.product.input') }}"  enctype="multipart/form-data" class='gap-3'>
             @csrf
             @method('post')
             <div class="form-group gap-3 form-row">
@@ -43,7 +43,7 @@
                     <small id="feeHelp" class="form-text text-muted">مبلغ را به تومن وارد کنید </small>
 
                 </div>
-                             
+
                 <div class="form-group col-5">
                     <label for="status ">وضعیت انتشار را انتخاب کنید </label>
                     <select class="form-select" aria-label="Default select example" name="status" id='status'>
@@ -59,9 +59,9 @@
                             @endforeach
                     </select>
                 </div>
-           
+
             </div>
-           
+
 
             <div class="form-group gap-2">
                 <label for="">درباره ما</label>
@@ -85,4 +85,4 @@
 @endif
 
 
-   
+

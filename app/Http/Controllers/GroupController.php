@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Group;
 use App\Http\Controllers\Controller;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreGroupRequest;
 
@@ -42,7 +43,7 @@ class GroupController extends Controller
      * @param  \App\Http\Requests\StoreGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGroupRequest $request)
+    public function store(StoreGroupRequest $request,Filesystem  $filesystem)
     {
         $input=$request->validated();
         $year = Carbon::now()->year;
@@ -63,7 +64,7 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        
+
     }
 
     /**

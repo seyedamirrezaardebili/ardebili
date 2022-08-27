@@ -24,7 +24,7 @@ class FileManagerController extends Controller
      */
     public function create()
     {
-        //
+       return view('fileManagerInput');
     }
 
     /**
