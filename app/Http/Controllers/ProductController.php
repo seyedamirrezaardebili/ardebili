@@ -60,7 +60,6 @@ class ProductController extends Controller
         $path=Storage::put($date,$request->file('File'));
         $input['File']=$path;
         $data=$this->cropModel->store($input);
-        dd($data);
         return redirect('adminpanel/group')->with('data',$data);
     }
 
