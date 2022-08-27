@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFileManagerRequest;
-use App\Http\Requests\UpdateFileManagerRequest;
-use App\Models\FileManager;
+use App\Models\File;
 
 class FileManagerController extends Controller
 {
@@ -15,7 +14,7 @@ class FileManagerController extends Controller
      */
     public function index()
     {
-        //
+        return view('filemanager');
     }
 
     /**
@@ -42,10 +41,10 @@ class FileManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FileManager  $fileManager
+     * @param  \App\Models\FileManager  $file
      * @return \Illuminate\Http\Response
      */
-    public function show(FileManager $fileManager)
+    public function show(File $file)
     {
         //
     }
@@ -53,10 +52,10 @@ class FileManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FileManager  $fileManager
+     * @param  \App\Models\FileManager  $file
      * @return \Illuminate\Http\Response
      */
-    public function edit(FileManager $fileManager)
+    public function edit(File $file)
     {
         //
     }
@@ -65,10 +64,10 @@ class FileManagerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateFileManagerRequest  $request
-     * @param  \App\Models\FileManager  $fileManager
+     * @param  \App\Models\FileManager  $file
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFileManagerRequest $request, FileManager $fileManager)
+    public function update(StoreFileManagerRequest $request, File $file)
     {
         //
     }
@@ -76,10 +75,10 @@ class FileManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FileManager  $fileManager
+     * @param  \App\Models\FileManager  $file
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FileManager $fileManager)
+    public function destroy(File $file)
     {
         //
     }

@@ -15,7 +15,7 @@ class MassageController extends Controller
      */
     public function index()
     {
-        //
+       return view('massage');
     }
 
     /**
@@ -68,7 +68,7 @@ class MassageController extends Controller
      * @param  \App\Models\massage  $massage
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemassageRequest $request, massage $massage)
+    public function update(StoremassageRequest $request, massage $massage)
     {
         //
     }

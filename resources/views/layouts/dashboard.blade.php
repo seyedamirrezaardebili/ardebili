@@ -74,6 +74,42 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
+        body {
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.profile-button {
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+}
+
+.profile-button:focus {
+    box-shadow: none
+}
+
+.profile-button:active {
+    box-shadow: none
+}
+
+.back:hover {
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px 
+}
     </style>
 
 
@@ -86,9 +122,9 @@
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{route('adminpanel')}}">تلاونگ اردبیل</a>
 </header>
 
-<div class="container-fluid">
+<div class="container-fluid " >
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse text-white bg-dark" style='min-height: 100vh;'>
             <div class="position-sticky pt-3 sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -98,31 +134,31 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('adminpanel.product') }}">
                             <span data-feather="file" class="align-text-bottom"></span>
                             محصولات
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('adminpanel.group') }}">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
                             دسته بندی
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('adminpanel.file') }}">
                             <span data-feather="users" class="align-text-bottom"></span>
                             مدیریت فایلها
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('adminpanel.article') }}">
                             <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                             مقالات
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('adminpanel.massege') }}">
                             <span data-feather="layers" class="align-text-bottom"></span>
                             پیام
                         </a>
@@ -131,6 +167,7 @@
             </div>
         </nav>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            @yield('error')
              @yield('main')
         </main>
     </div>

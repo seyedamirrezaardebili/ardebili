@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\File;
+use App\Models\Group;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -15,6 +17,13 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->longtext('File')->nullable();
+            $table->foreignIdFor(Group::class);
+            $table->string('title');
+            $table->string('slug')->nullable();
+            $table->longtext('body');
+            $table->enum('status',['draft','published','deleted']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

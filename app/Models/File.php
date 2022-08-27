@@ -2,16 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Article;
+use App\Models\Product;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class File extends BaseModel
 {
     use HasFactory, SoftDeletes;
 
-    public function profile(): \Illuminate\Database\Eloquent\Relations\HasMany
+
+    public function article()
     {
-        return $this->hasMany(profile::class);
+        return $this->belongsTo(Article::class);
     }
+
+    public function post()
+    {
+        return $this->belongsTo(post::class);
+    }
+
 }

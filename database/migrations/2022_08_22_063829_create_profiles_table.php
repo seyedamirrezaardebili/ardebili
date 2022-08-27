@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('phone');
             $table->string('fax')->nullable();
             $table->string('mobile',11)->nullable();
+            $table->string('email')->nullable();
             $table->longText('about_me');
-            $table->bigInteger('number_project');
-            $table->bigInteger('profit');
-            $table->bigInteger('Growth');
-            $table->bigInteger('Fund');
-            $table->foreignIdFor(File::class)->nullable();
+            $table->float('number_project');
+            $table->float('profit');
+            $table->float('Growth');
+            $table->float('Fund');
+            $table->longText('file')->nullable();
             $table->softdeletes();
             $table->timestamps();
         });

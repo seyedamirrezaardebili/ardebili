@@ -13,7 +13,7 @@ class StoreindexRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreindexRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'string|sometimes',
+            'slug'=>'string|sometimes',
+            'title'=>'string|sometimes',
+            'body'=>'string|sometimes',
+            'file'=>'File|sometimes',
         ];
     }
 }

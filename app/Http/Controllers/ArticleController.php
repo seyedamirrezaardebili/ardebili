@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        return view('Article');
     }
 
     /**
@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articleinput');
     }
 
     /**
@@ -68,7 +68,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateArticleRequest $request, Article $article)
+    public function update(StoreArticleRequest $request, Article $article)
     {
         //
     }

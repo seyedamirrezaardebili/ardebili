@@ -13,7 +13,7 @@ class StoremassageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoremassageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'string|sometimes',
+            'phone'=>'string|sometimes',
+            'email'=>'email|sometimes',
+            'phone'=>'string|sometimes',
         ];
     }
 }

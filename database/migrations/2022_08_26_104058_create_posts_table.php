@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\File;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -13,14 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longtext('body');
-            $table->longtext('File');
-            $table->string('title');
+            $table->string('name')->nullable();
             $table->string('slug')->nullable();
-            $table->enum('status',['draft','published','deleted']);
+            $table->string('title')->nullable();
+            $table->longtext('File')->nullable();
+            $table->longText('body')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('posts');
     }
 };

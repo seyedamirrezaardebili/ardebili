@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Models\crop;
+use App\Models\Group;
+use App\Models\Product;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+    protected Group $gropModel;
+    protected crop  $cropModel;
+    
+    public function __construct(Group $gropModel, crop  $cropModel)
+    {
+        $this->gropModel=$gropModel;
+        $this->cropModel=$cropModel;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +30,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product');
     }
 
     /**
@@ -25,7 +40,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $data=$this->gropModel->all()->toArray();
+        return view('productinput')->with('data',$data);
     }
 
     /**
@@ -36,7 +52,15 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $input=$request->validated();
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $day = Carbon::now()->day;
+        $date = 'images/product/'.$year . '-' . $month . '-' . $day;
+        $path=Storage::put($date,$request->file('File'));
+        $input['File']=$path;
+        $data=$this->cropModel->store($input);
+        return redirect('adminpanel/group')->with('data',$data);
     }
 
     /**
@@ -45,7 +69,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(crop $crop)
     {
         //
     }
@@ -56,7 +80,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(crop $crop)
     {
         //
     }
@@ -68,7 +92,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(StoreProductRequest $request, crop $crop)
     {
         //
     }
@@ -79,7 +103,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(crop $crop)
     {
         //
     }

@@ -21,9 +21,9 @@ class BaseModel extends Model
     */
    public function getCreatedAtAttribute($value)
    {
-    //    return   Jalalian::fromCarbon(Carbon::createFromTimestamp(strtotime($value))
-    //        ->timezone('Asia/Tehran')
-    //    )->toString();
+       return   Jalalian::fromCarbon(Carbon::createFromTimestamp(strtotime($value))
+           ->timezone('Asia/Tehran')
+       )->toString();
    }
 
    protected function getPerPageNumber(int $perPage): int
@@ -119,5 +119,16 @@ class BaseModel extends Model
     {
         return $this->query()->where('id',$id)->first();
     }
+
+
+    public function updateAndCreate($id,$credentials)
+    {
+        $update = $this->fetch($id);
+        if (!empty($update))
+            return $this->updateAndFetch($id, $credentials);
+        else
+            return $this->store($credentials);
+    }
+
 
 }
