@@ -29,7 +29,7 @@ class StoreGroupRequest extends FormRequest
            'title'=>'string|required',
            'slug'=>'string|sometimes',
            'File'=>'required|image',
-           'status'=>'string|in:draft,published,deleted|required'
+           'status'=>'string|in:draft,published,deleted|required',
 
         ];
     }

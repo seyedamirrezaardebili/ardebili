@@ -18,10 +18,11 @@ return new class extends Migration
             $table->float('size')->nullable();
             $table->string('dimension')->nullable();
             $table->string('url');
+            $table->string('title')->nullable();
             $table->string('alt')->nullable();
-            $table->string('extension',6);
+            $table->string('extension',6)->nullable();
             $table->string('name');
-            $table->string('key');
+            $table->enum('key', ['header', 'movie', 'down','up']);
             $table->enum('status',['draft','published','deleted']);
             $table->softDeletes();
             $table->timestamps();

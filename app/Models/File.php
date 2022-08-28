@@ -11,7 +11,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class File extends BaseModel
 {
     use HasFactory, SoftDeletes;
-
+    protected $fillable=[
+        'name',
+        'key',
+        'status',
+        'title',
+        'url',
+    ];
 
     public function article()
     {

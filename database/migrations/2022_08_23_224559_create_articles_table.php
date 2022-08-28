@@ -19,10 +19,10 @@ return new class extends Migration
             $table->id();
             $table->longtext('File')->nullable();
             $table->foreignIdFor(Group::class);
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->longtext('body');
-            $table->enum('status',['draft','published','deleted']);
+            $table->enum('status', ['draft', 'published', 'deleted']);
             $table->softDeletes();
             $table->timestamps();
         });

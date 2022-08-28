@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use App\Models\Group;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+    protected  Group $groupModel;
+    protected  Article $articleModel;
+
+
+    public function __construct(Group $gropModel ,Article $articleModel){
+        $this->gropModel=$gropModel;
+        $this->articleModel=$articleModel;
+        return $this ;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +37,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articleinput');
+        $data=$this->gropModel->all()->toArray();
+        return view('articleinput')->with('data',$data);
     }
 
     /**
@@ -36,7 +49,16 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        //
+
+        $input=$request->validated();
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $day = Carbon::now()->day;
+        $date = 'images/file/'.$year . '-' . $month . '-' . $day;
+        $path=Storage::put($date,$request->file('File'));
+        $input['File']=$path;
+        $data=$this->articleModel->store($input);
+        return redirect('adminpanel/group')->with('data',$data);
     }
 
     /**

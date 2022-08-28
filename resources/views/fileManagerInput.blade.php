@@ -10,18 +10,18 @@
 @endsection()
 
 @section('main')
-    <form method="post" action="{{ route('adminpanel.product.input') }}"  enctype="multipart/form-data" class='gap-3'>
+    <form method="post" action="{{ route('adminpanel.file.input') }}"  enctype="multipart/form-data" class='gap-3'>
         @csrf
         @method('post')
         <div class="form-group gap-3 form-row">
             <div class='col-10'>
                 <label for="name">نام</label>
-                <input class="form-control" type="text" placeholder="نام محصول" name="name" id="name" value="">
+                <input class="form-control" type="text" placeholder="نام فایل" name="name" id="name" value="">
                 <small id="NameHelp" class="form-text text-muted ">نام را به طور کامل وارد کنید.</small>
             </div>
             <div class="col-10">
                 <div class="mb-3" >
-                    <label for="File" class="form-label">  فایل را بارگذاری کنید</label>
+                    <label for="File" class="form-label"> فایل را بارگذاری کنید</label>
                     <input class="form-control" type="File" id="File" name="File" >
                 </div>
             </div>
@@ -43,21 +43,16 @@
                 </select>
             </div>
             <div class="form-group col-5">
-                <label for="Group_id ">مک </label>
-                <select class="form-select" aria-label="Default select example" name="group_id" id='group_id'>
-                    <option value="published" selected>پس زمینه  </option>
-                    <option value="draft">فیلم</option>
+                <label for="key ">مکان مربوط به فایل را انتخاب کنید </label>
+                <select class="form-select" aria-label="Default select example" name="key" id='key'>
+                    <option value="header" selected>پس زمینه  </option>
+                    <option value="movie">فیلم شروع</option>
+                    <option value="down">پستر پایین</option>
+                    <option value="up">پس زمیه بالا</option>
                 </select>
             </div>
 
         </div>
-
-
-        <div class="form-group gap-2">
-            <label for="">درباره ما</label>
-            <textarea class="form-control" id="body" rows="3" name='body' placeholder="اطلاعاتی که می خواهید درباره محصول نمایش داده شود بنویسید"  ></textarea>
-        </div>
-
         <button type="submit" class="btn btn-primary">ثبت</button>
     </form>
     <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>

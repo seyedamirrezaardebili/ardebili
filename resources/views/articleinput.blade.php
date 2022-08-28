@@ -37,13 +37,8 @@
                     <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  >
                     <small id="titleHelp" class="form-text text-muted">  عنوان را به طور کامل وارد کنید </small>
                 </div>
-                <div class="form-group col-5">
-                    <label for="fee">قیمت</label>
-                    <input type="text" class="form-control" name="fee" id="fee" placeholder="قیمت" >
-                    <small id="feeHelp" class="form-text text-muted">مبلغ را به تومن وارد کنید </small>
 
-                </div>
-                             
+
                 <div class="form-group col-5">
                     <label for="status ">وضعیت انتشار را انتخاب کنید </label>
                     <select class="form-select" aria-label="Default select example" name="status" id='status'>
@@ -54,12 +49,14 @@
                 <div class="form-group col-5">
                     <label for="Group_id ">دسته بندی را انتخاب کنید </label>
                     <select class="form-select" aria-label="Default select example" name="group_id" id='group_id'>
-                           
+                        @foreach ($data as $dat)
+                            <option value="{{ $dat['id'] }}">{{ $dat['name'] }}  </option>
+                        @endforeach
                     </select>
                 </div>
-           
+
             </div>
-           
+
 
             <div class="form-group gap-2">
                 <label for="">درباره ما</label>
@@ -83,4 +80,4 @@
 @endif
 
 
-   
+

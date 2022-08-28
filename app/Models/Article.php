@@ -10,7 +10,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Article extends BaseModel
 {
     use HasFactory,SoftDeletes;
-
+    protected  $fillable=[
+        'title',
+        'slug',
+        'body',
+        'File',
+        'group_id',
+        'status',
+        'email',
+    ];
 
     public function File()
     {

@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFileManagerRequest;
 use App\Models\File;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class FileManagerController extends Controller
 {
+    protected  File $fileModel;
+    public function  __construct(File $fileModel)
+    {
+        return $this->fileModel=$fileModel;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +42,16 @@ class FileManagerController extends Controller
      */
     public function store(StoreFileManagerRequest $request)
     {
-        //
+
+        $input=$request->validated();
+        $year = Carbon::now()->year;
+        $month = Carbon::now()->month;
+        $day = Carbon::now()->day;
+        $date = 'images/file/'.$year . '-' . $month . '-' . $day;
+        $path=Storage::put($date,$request->file('File'));
+        $input['url']=$path;
+        $data=$this->fileModel->store($input);
+        return redirect('adminpanel/group')->with('data',$data);
     }
 
     /**

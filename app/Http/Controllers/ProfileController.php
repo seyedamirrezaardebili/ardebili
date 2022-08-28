@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 class ProfileController extends Controller
 {
     protected profile $profileModel;
-    
+
     const idProfile=1;
 
     public function __construct(profile $model){
@@ -54,12 +54,14 @@ class ProfileController extends Controller
     {
         $input=$request->validated();
         $id=(int)self::idProfile;
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
-        $date = 'image/profile/'.$year . '-' . $month . '-' . $day;
-        $path=Storage::put($date,$request->file('File'));
-        $input['file']=$path;
+        if($request->has('File')) {
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'image/profile/' . $year . '-' . $month . '-' . $day;
+            $path = Storage::put($date, $request->file('File'));
+            $input['file'] = $path;
+        }
         $data=$this->profileModel->updateAndCreate($id,$input);
         return redirect('adminpanel/profile')->with('data',$data);
     }
@@ -71,9 +73,9 @@ class ProfileController extends Controller
      */
     public function show()
     {
-        
+
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.

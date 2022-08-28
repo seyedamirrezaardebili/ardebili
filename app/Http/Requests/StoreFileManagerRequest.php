@@ -24,7 +24,10 @@ class StoreFileManagerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'name'=>'string|required',
+            'key'=>'string|in:header,movie,down,up',
+            'status'=>'string|in:draft,published,deleted|required',
+            'title'=>'string|sometimes'
         ];
     }
 }
