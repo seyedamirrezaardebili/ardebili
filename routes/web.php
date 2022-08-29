@@ -19,13 +19,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('adminpanel')->group(function (){
+
+Route::get('/', [AuthUserController::class,'index'])->name('login');
+Route::post('/', [AuthUserController::class,'store'])->name('login');
+
+Route::prefix('adminpanel')->middleware('auth')->group(function (){
     Route::get('/', [AdminController::class,'index'])->name('adminpanel');
    //profile route
     Route::get("profile",[ProfileController::class,'index'])->name('adminpanel.profile');
     Route::get("editprofile",[ProfileController::class,'create'])->name('adminpanel.editprofile');
     Route::post("editprofile",[ProfileController::class,'store'])->name('adminpanel.editprofile');
-    
+
     Route::get("prouduct",[ProductController::class,'index'])->name('adminpanel.product');
     Route::get("prouduct/input",[ProductController::class,'create'])->name('adminpanel.product.input');
     Route::post("prouduct/input",[ProductController::class,'store'])->name('adminpanel.product.input');

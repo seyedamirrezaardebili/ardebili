@@ -108,7 +108,7 @@
 .add-experience:hover {
     color: #fff;
     cursor: pointer;
-    border: solid 1px 
+    border: solid 1px
 }
     </style>
 
