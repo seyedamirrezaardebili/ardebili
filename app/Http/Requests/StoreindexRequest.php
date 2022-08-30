@@ -29,6 +29,8 @@ class StoreindexRequest extends FormRequest
             'title'=>'string|sometimes',
             'body'=>'string|sometimes',
             'file'=>'File|sometimes',
+            'id'=>'sometimes',
+
         ];
     }
 }

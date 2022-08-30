@@ -37,14 +37,7 @@ class AuthUserController extends Controller
      */
     public function store(Request $request)
     {
-        return Fortify::authenticateUsing(function (userrequest $request){
-            $user=User::where('email',$request->email)->first;
-
-            if($user  && hash::check($request->password) , $user->password){
-                return true;
-            }
-            return  false;
-        });
+       
     }
 
     /**

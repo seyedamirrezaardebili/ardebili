@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->longtext('body');
             $table->float('fee');
-            $table->enum('status',['draft','published','deleted']);
+            $table->enum('status',['draft','published','deleted'])->default('draft');
             $table->softDeletes();
             $table->timestamps();
         });

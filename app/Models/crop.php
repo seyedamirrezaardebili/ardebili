@@ -19,6 +19,8 @@ class crop extends BaseModel
         'status',
         'fee',
         'group_id',
+        'id',
+
 ];
     public function group()
     {

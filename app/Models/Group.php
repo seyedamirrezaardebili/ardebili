@@ -19,6 +19,8 @@ class Group extends BaseModel
             'slug',
             'File',
             'status',
+            'id',
+
 ];
 
     

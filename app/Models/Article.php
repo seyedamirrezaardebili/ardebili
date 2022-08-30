@@ -18,6 +18,7 @@ class Article extends BaseModel
         'group_id',
         'status',
         'email',
+        'id',
     ];
 
     public function File()

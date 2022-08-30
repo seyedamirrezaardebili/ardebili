@@ -58,7 +58,7 @@ class ArticleController extends Controller
         $path=Storage::put($date,$request->file('File'));
         $input['File']=$path;
         $data=$this->articleModel->store($input);
-        return redirect('adminpanel/group')->with('data',$data);
+        return redirect('adminpanel/article')->with('data',$data);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\crop;
 use App\Models\Group;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\cropdeleterequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -30,7 +31,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product');
+        $data['group']=$this->gropModel->all();
+        $data['crop']=$this->cropModel->paginate()->toarray();
+        return view('product')->with('data',$data);
     }
 
     /**
@@ -60,7 +63,7 @@ class ProductController extends Controller
         $path=Storage::put($date,$request->file('File'));
         $input['File']=$path;
         $data=$this->cropModel->store($input);
-        return redirect('adminpanel/group')->with('data',$data);
+        return redirect('adminpanel/prouduct')->with('data',$data);
     }
 
     /**
@@ -71,7 +74,7 @@ class ProductController extends Controller
      */
     public function show(crop $crop)
     {
-        //
+        return view('productedelete')->with('crop',$_GET);
     }
 
     /**
@@ -82,7 +85,10 @@ class ProductController extends Controller
      */
     public function edit(crop $crop)
     {
-        //
+        $crop['group']=$this->gropModel->all()->toArray();
+        $crop['data']=$_GET;
+
+        return view('productedit')->with('crop',$crop);
     }
 
     /**
@@ -94,7 +100,8 @@ class ProductController extends Controller
      */
     public function update(StoreProductRequest $request, crop $crop)
     {
-        //
+        $this->cropModel->updateAndFetch($request->id,$request->validated());
+        return redirect()->route('adminpanel.product');
     }
 
     /**
@@ -103,8 +110,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(crop $crop)
+    public function destroy(crop $crop , cropdeleterequest $request)
     {
-        //
+        $this->cropModel->deleteModel($request->id);
+        return redirect()->route('adminpanel.product');
+
     }
 }

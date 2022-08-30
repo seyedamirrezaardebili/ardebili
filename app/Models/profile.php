@@ -22,6 +22,8 @@ class profile extends BaseModel
             'Fund',
             'Growth',
             'file',
+            'id',
+
     ];
 
 

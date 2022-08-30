@@ -35,6 +35,8 @@ class StoreprofileRequest extends FormRequest
             'Fund'=>'numeric|required',
             'Growth'=>'numeric|required',
             'File'=>'image|sometimes',
+            'id'=>'sometimes',
+
         ];
     }
 }

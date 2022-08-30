@@ -27,7 +27,9 @@ class StoreFileManagerRequest extends FormRequest
            'name'=>'string|required',
             'key'=>'string|in:header,movie,down,up',
             'status'=>'string|in:draft,published,deleted|required',
-            'title'=>'string|sometimes'
+            'title'=>'string|sometimes',
+            'id'=>'sometimes',
+
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class cropdeleterequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,7 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'string|required',
-            'slug'=>'string|sometimes',
-            'body'=>'string|required',
-            'File'=>'image|sometimes',
-            'fee'=>'numeric|required',
-            'name'=>'string|required',
-            'group_id'=>'integer|required',
-            'status'=>'string|in:draft,published,deleted|required',
-            'id'=>'sometimes',
-
+            'id'=>'required'
         ];
     }
 }

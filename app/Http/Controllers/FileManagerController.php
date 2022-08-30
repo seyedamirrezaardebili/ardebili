@@ -51,7 +51,7 @@ class FileManagerController extends Controller
         $path=Storage::put($date,$request->file('File'));
         $input['url']=$path;
         $data=$this->fileModel->store($input);
-        return redirect('adminpanel/group')->with('data',$data);
+        return redirect('adminpanel/file')->with('data',$data);
     }
 
     /**

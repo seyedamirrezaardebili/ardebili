@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('extension',6)->nullable();
             $table->string('name');
             $table->enum('key', ['header', 'movie', 'down','up']);
-            $table->enum('status',['draft','published','deleted']);
+            $table->enum('status',['draft','published','deleted'])->default('draft');
             $table->softDeletes();
             $table->timestamps();
         });

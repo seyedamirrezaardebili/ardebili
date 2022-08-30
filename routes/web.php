@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AuthUserController::class,'index'])->name('login');
 Route::post('/', [AuthUserController::class,'store'])->name('login');
 
-Route::prefix('adminpanel')->middleware('auth')->group(function (){
+Route::prefix('adminpanel')->group(function (){
     Route::get('/', [AdminController::class,'index'])->name('adminpanel');
    //profile route
     Route::get("profile",[ProfileController::class,'index'])->name('adminpanel.profile');
@@ -33,7 +33,11 @@ Route::prefix('adminpanel')->middleware('auth')->group(function (){
     Route::get("prouduct",[ProductController::class,'index'])->name('adminpanel.product');
     Route::get("prouduct/input",[ProductController::class,'create'])->name('adminpanel.product.input');
     Route::post("prouduct/input",[ProductController::class,'store'])->name('adminpanel.product.input');
-    Route::put("prouduct/input",[ProductController::class,'edit'])->name('adminpanel.product.input');
+    Route::get("prouduct/edit/id/{id}",[ProductController::class,'edit'])->name('adminpanel.product.edit');
+    Route::get("prouduct/delete/id/{id}",[ProductController::class,'show'])->name('adminpanel.product.delete');
+    Route::delete("prouduct/delete/id/{id}",[ProductController::class,'delete'])->name('adminpanel.product.delete');
+
+    Route::put("prouduct/input",[ProductController::class,'update'])->name('adminpanel.product.input');
     Route::delete("prouduct/input",[ProductController::class,'destroy'])->name('adminpanel.product.input');
 
     Route::get("group",[GroupController::class,'index'])->name('adminpanel.group');
