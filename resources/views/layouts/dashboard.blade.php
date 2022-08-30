@@ -123,10 +123,10 @@
 </header>
 
 <div class="container-fluid " >
-    <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse text-white bg-dark" style='min-height: 100vh;'>
+    <div class="row ">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 col-sm-10 col-xs-10 d-md-block bg-light sidebar collapse text-white bg-dark" style='min-height: 100vh;'>
             <div class="position-sticky pt-3 sidebar-sticky">
-                <ul class="nav flex-column">
+                <ul class="nav flex-column  ">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('adminpanel.profile')}}">
                             <span data-feather="home" class="align-text-bottom"></span>
@@ -166,7 +166,7 @@
                 </ul>
             </div>
         </nav>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <main class="col-md-9 col-sm-1 col-xs-1 ms-sm-auto col-lg-10 px-md-4">
                 @yield('error')
                 @yield('main')
                 @yield('content')

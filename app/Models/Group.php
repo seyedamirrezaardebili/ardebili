@@ -23,15 +23,19 @@ class Group extends BaseModel
 
 ];
 
-    
+
     public function crop()
-    
+
     {
         return $this->hasMany(crop::class);
     }
     public function Article()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function orderLastData(){
+        return $this->query()->orderByDesc('id')->get();
     }
 }
 

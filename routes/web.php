@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\FileManagerController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GroupController;
@@ -62,8 +64,6 @@ Route::prefix('adminpanel')->group(function (){
 
 });
 
-Route::get('/',function(){
-  return  view('index');
-});
+Route::get('/',[IndexController::class,'index']);
 
 

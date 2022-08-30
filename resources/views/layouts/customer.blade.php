@@ -2,7 +2,7 @@
 <!DOCTYPE html>
     <html lang="en">
 
-    
+
 <head>
         <meta charset="utf-8" />   <title>لندریک  - قالب چندمنظوره ای مدرن html</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +25,11 @@
         <!-- Icons -->
         <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="unicons.iconscout.com/release/v3.0.6/css/line.css">
-        <!-- Slider -->               
-        <link rel="stylesheet" href="css/tiny-slider.css"/> 
+        <!-- Slider -->
+        <link rel="stylesheet" href="css/tiny-slider.css"/>
         <!-- Main Css -->
         <link href="css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
-        <link href="css/colors/default.css" rel="stylesheet" id="color-opt">
+        <link href="css/colors/green.css" rel="stylesheet" id="color-opt">
 
     </head>
 
@@ -44,7 +44,7 @@
             </div>
         </div> -->
         <!-- Loader -->
-        
+
         <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky">
             <div class="container">
@@ -54,13 +54,8 @@
                         <img src="images/logo-dark.png" class="l-dark" height="24" alt="">
                         <img src="images/logo-light.png" class="l-light" height="24" alt="">
                     </a>
-                </div>                 
-                <div class="buy-button">
-                    <a href="https://www.rtl-theme.com/?p=133270" target="_blank">
-                        <div class="btn btn-primary login-btn-primary">اکنون میخرم </div>
-                        <div class="btn btn-light login-btn-light">اکنون میخرم </div>
-                    </a>
-                </div><!--end login button-->
+                </div>
+
                 <!-- End Logo container-->
                 <div class="menu-extras">
                     <div class="menu-item">
@@ -75,9 +70,9 @@
                         <!-- End mobile menu toggle-->
                     </div>
                 </div>
-        
+
                 <div id="navigation">
-                    <!-- Navigation Menu-->   
+                    <!-- Navigation Menu-->
                     <ul class="navigation-menu nav-light">
                         <li><a href="index.html" class="sub-menu-item">صفحه اصلی </a></li>
                         <li class="has-submenu parent-parent-menu-item">
@@ -130,7 +125,7 @@
                                         <li><a href="index-blog.html" class="sub-menu-item">وبلاگ </a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <li>
                                     <ul>
                                         <li><a href="index-landing-one.html" class="sub-menu-item">لندینگ یک </a></li>
@@ -139,14 +134,14 @@
                                         <li><a href="index-landing-four.html" class="sub-menu-item">لندینگ چهار </a></li>
                                         <li><a href="index-shop.html" class="sub-menu-item">فروشگاه </a></li>
                                         <li><a href="index-insurance.html" class="sub-menu-item">بیمه </a></li>
-                                        <li><a href="index-online-learning.html" class="sub-menu-item">آموزش آنلاین </a></li>                                        
+                                        <li><a href="index-online-learning.html" class="sub-menu-item">آموزش آنلاین </a></li>
                                         <li><a href="index-personal.html" class="sub-menu-item">شخصی </a></li>
                                         <li><a href="index-coworking.html" class="sub-menu-item">همکار </a></li>
                                         <li><a href="index-course.html" class="sub-menu-item">دوره ها </a></li>
                                         <li><a href="forums.html" class="sub-menu-item">انجمن ها </a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <li>
                                     <ul>
                                         <li><a href="index-event.html" class="sub-menu-item">رویدادها </a></li>
@@ -161,10 +156,10 @@
                                         <li><a href="index-ebook.html" class="sub-menu-item">کتاب الکترونیکی </a></li>
                                         <li><a href="index-onepage.html" class="sub-menu-item">ساس  <span class="badge bg-warning ms-2">تک صفحه ای </span></a></li>
                                     </ul>
-                                </li>   
+                                </li>
                             </ul>
                         </li>
-        
+
                         <li class="has-submenu parent-parent-menu-item">
                             <a href="javascript:void(0)">صفحات </a><span class="menu-arrow"></span>
                             <ul class="submenu">
@@ -176,7 +171,7 @@
                                         <li><a href="page-history.html" class="sub-menu-item">تاریخچه </a></li>
                                         <li><a href="page-team.html" class="sub-menu-item"> تیم </a></li>
                                         <li><a href="page-pricing.html" class="sub-menu-item">قیمت گذاری </a></li>
-                                    </ul> 
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> حساب کاربری  </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -187,7 +182,7 @@
                                         <li><a href="account-payments.html" class="sub-menu-item">پرداخت ها  </a></li>
                                         <li><a href="account-setting.html" class="sub-menu-item">تنظیمات </a></li>
                                         <li><a href="page-invoice.html" class="sub-menu-item">صورتحساب </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> فروشگاه </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -197,7 +192,7 @@
                                         <li><a href="shop-cart.html" class="sub-menu-item">سبد خرید </a></li>
                                         <li><a href="shop-checkouts.html" class="sub-menu-item">پرداختی ها </a></li>
                                         <li><a href="shop-myaccount.html" class="sub-menu-item">حساب من </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> مرکز پشتیبانی </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -205,14 +200,14 @@
                                         <li><a href="helpcenter-faqs.html" class="sub-menu-item">گفت و گو </a></li>
                                         <li><a href="helpcenter-guides.html" class="sub-menu-item">راهنماها </a></li>
                                         <li><a href="helpcenter-support-request.html" class="sub-menu-item">پشتیبانی تماسی </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> انجمن ها  </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
                                         <li><a href="forums.html" class="sub-menu-item">بررسی اجمالی  </a></li>
                                         <li><a href="forums-topic.html" class="sub-menu-item">موضوع انجمن </a></li>
                                         <li><a href="forums-comments.html" class="sub-menu-item">نظرات انجمن  </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> قالب ایمیل</a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -220,7 +215,7 @@
                                         <li><a href="email-password-reset.html" class="sub-menu-item">بازیابی رمز عبور</a></li>
                                         <li><a href="email-alert.html" class="sub-menu-item">هشدار </a></li>
                                         <li><a href="email-invoice.html" class="sub-menu-item">صورتحساب </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)">مشاغل </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -232,7 +227,7 @@
                                         <li><a href="page-job-company.html" class="sub-menu-item">جزئیات شرکت</a></li>
                                         <li><a href="page-job-candidate-list.html" class="sub-menu-item">لیست نامزدها </a></li>
                                         <li><a href="page-job-candidate.html" class="sub-menu-item">جزئیات نامزد </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> وبلاگ  </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -242,7 +237,7 @@
                                         <li><a href="page-blog-list-sidebar.html" class="sub-menu-item">فهرست وبلاگ و سایدبار</a></li>
                                         <li><a href="page-blog-detail.html" class="sub-menu-item">جزئیات وبلاگ </a></li>
                                         <li><a href="page-blog-detail-two.html" class="sub-menu-item">جزئیات وبلاگ  2 </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> مطالعه موردی  </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -257,7 +252,7 @@
                                         <li><a href="page-portfolio-grid.html" class="sub-menu-item">نمونه کار گرید </a></li>
                                         <li><a href="page-portfolio-masonry.html" class="sub-menu-item">نمونه کار ساختمانی </a></li>
                                         <li><a href="page-portfolio-detail.html" class="sub-menu-item">جزئیات نمونه کار </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> دیگر صفحات  </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -270,13 +265,13 @@
                                         <li><a href="auth-re-password.html" class="sub-menu-item">بازیابی رمز عبور</a></li>
                                         <li><a href="auth-cover-re-password.html" class="sub-menu-item">بازیابی رمز عبور 2</a></li>
                                         <li><a href="auth-re-password-three.html" class="sub-menu-item">بازیابی رمز عبور 3</a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> نرم افزار </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
                                         <li><a href="page-terms.html" class="sub-menu-item">خدمات سایت </a></li>
                                         <li><a href="page-privacy.html" class="sub-menu-item">حریم خصوصی </a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                                 <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> صفحات خاص </a><span class="submenu-arrow"></span>
                                     <ul class="submenu">
@@ -293,7 +288,7 @@
                                         <li><a href="page-contact-one.html" class="sub-menu-item">تماس 1</a></li>
                                         <li><a href="page-contact-two.html" class="sub-menu-item">تماس 2</a></li>
                                         <li><a href="page-contact-three.html" class="sub-menu-item">تماس 3</a></li>
-                                    </ul>  
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -314,7 +309,7 @@
             </div><!--end container-->
         </header><!--end header-->
         <!-- Navbar End -->
-        
+
         @yield('content')
         <!-- Footer Start -->
         <footer class="footer bg-light">
@@ -332,7 +327,7 @@
                             <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
                         </ul><!--end icon-->
                     </div><!--end col-->
-                    
+
                     <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h5 class="text-dark footer-head">شرکت </h5>
                         <ul class="list-unstyled footer-list mt-4">
@@ -346,7 +341,7 @@
                             <li><a href="auth-cover-login.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> ورود </a></li>
                         </ul>
                     </div><!--end col-->
-                    
+
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h5 class="text-dark footer-head">لینک های مفید </h5>
                         <ul class="list-unstyled footer-list mt-4">

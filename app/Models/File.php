@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class File extends BaseModel
 {
     use HasFactory, SoftDeletes;
-    protected $table='Files';
+    protected $table='files';
     protected $fillable=[
         'name',
         'key',
