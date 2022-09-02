@@ -51,9 +51,11 @@ adminpanel
       <td>{{ $dat['status'] }}</td>
       <td>{{ $dat['body'] }}</td>
       <td> {{ $data['group'][$dat['group_id']]['name'] }}</td>
+      <td hidden>
       {{ 
         $dat['id_id']=$dat['id']
       }}
+      </td>
       <td><a href="{{ route('adminpanel.product.edit',$dat) }}"><button type="button" class="btn btn-primary">اصلاح</button></a></td>
       <td><a href="{{ route('adminpanel.product.delete',$dat) }}"><button type="button" class="btn btn-danger">حذف</button></a></td>
     </tr>

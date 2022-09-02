@@ -5,17 +5,17 @@
 
 @section('content')
 
-      <!-- Hero Start -->
+    <!-- Hero Start -->
       @foreach($data['file'] as $key=>$file)
-          @if($file['key']=='header')
+        @if($file['key']=='header')
       <section class="bg-half-170 d-table w-100" style='background: url({{ Storage::url($file["url"]) }}) center center;' id="home">
             <div class="bg-overlay"></div>
             <div class="container">
 
                 </div><!--end container-->
         </section><!--end section-->
-        <!-- Hero End -->
-      @endif
+    <!-- Hero End -->
+        @endif
       @endforeach
         <!-- Shape Start -->
         <div class="position-relative">
@@ -41,8 +41,8 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <div class="section-title mb-4 pb-2">
-                            <h4 class="title mb-4">رابط های زیبا و خلاقانه</h4>
-                            <p class="text-muted para-desc mb-0 mx-auto">شروع به کار با <span class="text-primary fw-bold">لنـدریـک </span> که می تواند هر آنچه را که شما برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                            <h4 class="title mb-4">خدماتی که ما به شما می دهیم</h4>
+                            <p class="text-muted para-desc mb-0 mx-auto"> شرکت    <span class="text-primary fw-bold">تلاونگ  </span> در زمینه ی ساخت و راه اندازی گلخانه ,مرغ داری و ... در خدمت شما عزیزان هست</p>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -73,11 +73,11 @@
                         @foreach($data['file'] as $key=>$file)
                             @if($file['key']=='movie')
                                 <div class="position-relative">
-                                    <img src="{{ Storage::url($file["url"])}}" class="rounded img-fluid mx-auto d-block" alt="">
+                                    <img src="{{ Storage::url($file['url'])}}" class="rounded img-fluid mx-auto d-block" alt="">
                                     <div class="play-icon">
                                         <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn lightbox">
                                             <video width="320" height="240" autoplay>
-                                                <source src="{{ Storage::url($file["url"])}}" type="video/mp4">
+                                                <source src="{{ Storage::url($file['url'])}}" type="video/mp4">
                                             </video>
                                         </a>
                                     </div>
@@ -119,8 +119,8 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <div class="section-title mb-4 pb-2">
-                            <h4 class="title mb-4">همه چیز را در مورد خود ببینید <span class="text-primary">لنـدریـک </span></h4>
-                            <p class="text-muted para-desc mx-auto mb-0">شروع به کار با <span class="text-primary fw-bold">لنـدریـک </span> که می تواند هر آنچه را که شما برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
+                            <h4 class="title mb-4">با <span class="text-primary">تلاونگ </span> هوشمند سرمایه گذاری کنید</h4>
+                            <p class="text-muted para-desc mx-auto mb-0">  شرکت <span class="text-primary fw-bold">تلاونگ </span> با ده ها سال تجربه در زمینه مرغداری و گلخانه یک سرمایه گذاری مطمین را به شما پیشنهاد می دهد . </p>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -129,7 +129,7 @@
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset190.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="45000">11000</span>تومان </h2>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['Fund'] }}">{{ $data['profile'][0]['Fund'] }}</span>تومان </h2>
                             <h6 class="counter-head text-muted">سرمایه گذاری </h6>
                         </div><!--end counter box-->
                     </div>
@@ -137,15 +137,15 @@
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset189.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="9">1</span>+</h2>
-                            <h6 class="counter-head text-muted">جوایز </h6>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['number_project'] }}">{{ $data['profile'][0]['number_project'] }}</span>+</h2>
+                            <h6 class="counter-head text-muted">پروژه ها </h6>
                         </div><!--end counter box-->
                     </div>
 
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset186.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="48002">12050</span>تومان </h2>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['profit'] }}"> {{ $data['profile'][0]['profit'] }} </span>تومان </h2>
                             <h6 class="counter-head text-muted">سودآوری </h6>
                         </div><!--end counter box-->
                     </div>
@@ -153,7 +153,7 @@
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset187.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="11">3</span>%</h2>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['Growth'] }}">{{ $data['profile'][0]['Growth'] }}</span>%</h2>
                             <h6 class="counter-head text-muted">رشد </h6>
                         </div><!--end counter box-->
                     </div>
@@ -165,7 +165,7 @@
         <!-- CTA Start -->
       @foreach($data['file'] as $key=>$file)
           @if($file['key']=='down')
-        <section class="section bg-cta" style="background: url( {{  Storage::url($file["url"]) }} ) center center;" id="cta">
+        <section class="section bg-cta" style="background: url( {{  Storage::url($file['url']) }} ) center center;" id="cta">
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="row justify-content-center">
@@ -176,7 +176,7 @@
                             <p class="text-light para-dark para-desc mx-auto">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
                             <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn border border-light mt-4 lightbox">
                                 <video width="320" height="240" autoplay>
-                                    <source src="{{ Storage::url($file["url"])}}" type="video/mp4">
+                                    <source src="{{ Storage::url($file['url']) }}" type="video/mp4">
                                 </video>
                             </a>
 

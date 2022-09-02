@@ -24,7 +24,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('group');
+        $data=$this->groupmodel->query()->orderby('id')->get();
+        return view('group')->with('data',$data);
     }
 
     /**

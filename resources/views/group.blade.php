@@ -3,8 +3,6 @@
 @section('title')
 adminpanel
 @endsection()
-
-
 @section('companyName')
     تلاونگ اردبیل
 @endsection()
@@ -19,6 +17,45 @@ adminpanel
             </div>
         </div>
 
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100" id="myChart" width="900" height="30"></canvas>
+
+@endsection()
+@section("content") 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"> عکس</th>
+      <th scope="col">نام دسته بندی</th>
+      <th scope="col">عنوان</th>
+      <th scope="col">وضعیت انتشار</th>
+      <th scope="col">توضیحات</th>
+      <th scope="col"> اصلاح</th>
+      <th scope="col">حذف </th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+  @foreach($data as $dat)
+
+    <tr>
+      <td scope="row">{{ $dat['id'] }}</td>
+      <td class='w-50 h-50'><img src="{{ Storage::url($dat['File']) }}" alt="" class="img-thumbnail"></td>
+      <td>{{ $dat['name'] }}</td>
+      <td>{{ $dat['title'] }}</td>
+      <td>{{ $dat['status'] }}</td>
+      <td>{{ $dat['body'] }}</td>
+     <td hidden >      {{ 
+        $dat['id_id']=$dat['id']
+      }}</td>
+
+      <td><a href="{{ route('adminpanel.product.edit',$dat) }}"><button type="button" class="btn btn-primary">اصلاح</button></a></td>
+      <td><a href="{{ route('adminpanel.product.delete',$dat) }}"><button type="button" class="btn btn-danger">حذف</button></a></td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+
 
 @endsection()
