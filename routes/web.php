@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthUserController::class,'index'])->name('login');
-Route::post('/', [AuthUserController::class,'store'])->name('login');
+Route::get('/adminpanel', [AuthUserController::class,'index'])->name('login');
+Route::post('/adminpanel', [AuthUserController::class,'store'])->name('login');
 
 Route::prefix('adminpanel')->group(function (){
     Route::get('/', [AdminController::class,'index'])->name('adminpanel');
@@ -64,6 +64,6 @@ Route::prefix('adminpanel')->group(function (){
 
 });
 
-Route::get('/',[IndexController::class,'index']);
+Route::get('/',[IndexController::class,'index'])->name('index');
 
 
