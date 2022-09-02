@@ -50,7 +50,31 @@ class IndexController extends Controller
         $data['profile']=$this->profileModel->all();
         return  view('index')->with('data',$data);
     }
+    
+    public function group()
+    {
+        $data['profile']=$this->profileModel->all();
+        $data['file']=$this->fileModel->all();
+        $data['gruop']=$this->groupModel->all();
+        return view('indexgroup')->with('data',$data);
+    }
 
+    public function product()
+    {
+        $data['profile']=$this->profileModel->all();
+        $data['file']=$this->fileModel->all();
+        $data['gruop']=$this->groupModel->all();
+        $data['crop']=$this->cropModel->all();
+        return view('indexproduct')->with('data',$data);
+    }
+    public function Productgroup()
+    {
+        $data['profile']=$this->profileModel->all();
+        $data['file']=$this->fileModel->all();
+        $data['gruop']=$this->groupModel->all();
+        $data['crop']=$this->cropModel->all();
+        return view('indexproduct')->with('data',$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

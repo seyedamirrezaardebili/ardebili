@@ -65,5 +65,6 @@ Route::prefix('adminpanel')->group(function (){
 });
 
 Route::get('/',[IndexController::class,'index'])->name('index');
-
-
+Route::get('/group',[IndexController::class,'group'])->name('indexgroup');
+Route::get('/product',[IndexController::class,'product'])->name('indexproduct');
+Route::get('/product/id/{id}',[IndexController::class,'Productgroup'])->name('productgroup');

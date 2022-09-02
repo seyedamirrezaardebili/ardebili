@@ -5,19 +5,7 @@
 
 @section('content')
 
-    <!-- Hero Start -->
-      @foreach($data['file'] as $key=>$file)
-        @if($file['key']=='header')
-      <section class="bg-half-170 d-table w-100" style='background: url({{ Storage::url($file["url"]) }}) center center;' id="home">
-            <div class="bg-overlay"></div>
-            <div class="container">
 
-                </div><!--end container-->
-        </section><!--end section-->
-    <!-- Hero End -->
-        @endif
-      @endforeach
-        <!-- Shape Start -->
         <div class="position-relative">
             <div class="shape overflow-hidden text-white">
                 <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,18 +38,22 @@
 
                 <div class="row">
                     @foreach($data['gruop'] as $group)
-                    <div class="col-md-4 col-12 mt-5">
-                        <div class="features text-center">
-                            <div class="image position-relative d-inline-block">
-                                <i class="uil uil-edit-alt h1 text-primary"></i>
-                            </div>
+                        <div class="col-md-4 col-12 mt-5">
+                        <a href="{{ route('productgroup',$group) }}">
 
-                            <div class="content mt-4">
-                                <h5> {{ $group['title'] }} </h5>
-                                <p class="text-muted mb-0">{{  $group['body']  }}</p>
+                            <div class="features text-center">
+                                <div class="image position-relative d-inline-block">
+                                    <i class="uil uil-edit-alt h1 text-primary"></i>
+                                </div>
+
+                                <div class="content mt-4">
+                                    <h5> {{ $group['title'] }} </h5>
+                                    <p class="text-muted mb-0">{{  $group['body']  }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </div><!--end col-->
+                            </a>
+
+                        </div><!--end col-->
                     @endforeach
 
                 </div><!--end row-->

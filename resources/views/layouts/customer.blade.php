@@ -32,7 +32,7 @@
 
     </head>
 
-    <body>
+    <body dir='rtl'>
 
         <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky">
@@ -65,11 +65,14 @@
                     <ul class="navigation-menu nav-light">
                         <li><a href="{{ route('index') }}" class="sub-menu-item">صفحه اصلی </a></li>
                         <li class="has-submenu parent-parent-menu-item">
-                            <a href="javascript:void(0)"> خدمات </a>7</span>
+                            <a href="{{ route('indexgroup') }}"> خدمات </a></span>
                         </li>
 
                         <li class="has-submenu parent-parent-menu-item">
-                            <a href="javascript:void(0)">محصولات </a></span>
+                            <a href="{{ route('indexproduct') }}">محصولات </a></span>
+                        </li>
+                            <li class="has-submenu parent-parent-menu-item">
+                            <a href="{{ route('indexproduct') }}">پروژه ها </a></span>
                         </li>
                         <li class="has-submenu parent-menu-item">
                             <a href="javascript:void(0)">درباره ما </a><span class="menu-arrow"></span>
@@ -84,10 +87,22 @@
             </div><!--end container-->
         </header><!--end header-->
         <!-- Navbar End -->
+            <!-- Hero Start -->
+            @foreach($data['file'] as $key=>$file)
+        @if($file['key']=='header')
+      <section class="bg-half-170 d-table w-100" style='background: url({{ Storage::url($file["url"]) }}) center center;' id="home">
+            <div class="bg-overlay"></div>
+            <div class="container">
+
+            </div><!--end container-->
+        </section><!--end section-->
+
+        @endif
+      @endforeach
 
         @yield('content')
         <!-- Footer Start -->
-        <footer class="footer bg-light">
+        <footer class="footer bg-dark text-white">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
@@ -107,9 +122,9 @@
                         <h5 class="text-dark footer-head">شرکت </h5>
                         <ul class="list-unstyled footer-list mt-4">
                             <li><a href="page-aboutus.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> درباره ما </a></li>
-                            <li><a href="page-services.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> خدمات </a></li>
+                            <li><a href="{{ route('indexgroup') }}" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> خدمات </a></li>
                             <li><a href="page-portfolio-modern.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> پروژه </a></li>
-                            <li><a href="page-blog-grid.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> وبلاگ </a></li>
+                            <li><a href="{{ route('indexgroup') }}" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> محصولات </a></li>
                         </ul>
                     </div><!--end col-->
 
@@ -148,9 +163,8 @@
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
-        </footer><!--end footer-->
-        <footer class="footer footer-bar">
-            <div class="container text-center">
+
+            <div class="container text-center ">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="text-sm-start">
