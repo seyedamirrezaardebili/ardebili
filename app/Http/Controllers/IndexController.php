@@ -64,7 +64,7 @@ class IndexController extends Controller
         $data['profile']=$this->profileModel->all();
         $data['file']=$this->fileModel->all();
         $data['gruop']=$this->groupModel->all();
-        $data['crop']=$this->cropModel->all();
+        $data['crop']=$this->cropModel->query()->paginate(16);
         return view('indexproduct')->with('data',$data);
     }
     public function Productgroup()
@@ -75,69 +75,5 @@ class IndexController extends Controller
         $data['crop']=$this->cropModel->all();
         return view('indexproduct')->with('data',$data);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreindexRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreindexRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function show(index $index)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(index $index)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateindexRequest  $request
-     * @param  \App\Models\index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateindexRequest $request, index $index)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\index  $index
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(index $index)
-    {
-        //
-    }
 }
