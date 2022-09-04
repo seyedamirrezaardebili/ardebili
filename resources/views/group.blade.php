@@ -50,8 +50,8 @@ adminpanel
         $dat['id_id']=$dat['id']
       }}</td>
 
-      <td><a href="{{ route('adminpanel.product.edit',$dat) }}"><button type="button" class="btn btn-primary">اصلاح</button></a></td>
-      <td><a href="{{ route('adminpanel.product.delete',$dat) }}"><button type="button" class="btn btn-danger">حذف</button></a></td>
+      <td><a href="{{ route('adminpanel.group.edit',['id',$dat]) }}"><button type="button" class="btn btn-primary">اصلاح</button></a></td>
+      <td><a href="{{ route('adminpanel.group.delete',['id',$dat]) }}"><button type="button" class="btn btn-danger">حذف</button></a></td>
     </tr>
     @endforeach
   </tbody>

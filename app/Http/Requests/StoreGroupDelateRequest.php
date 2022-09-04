@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFileManagerRequest extends FormRequest
+class StoreGroupDelateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,14 @@ class StoreFileManagerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'string|required',
-            'key'=>'string|in:header,,down,',
-            'status'=>'string|in:draft,published,deleted|required',
-            'title'=>'string|sometimes',
-            'File'=>'image|required',
+           'name'=>'string|sometimes',
+           'body'=>'string|sometimes',
+           'title'=>'string|sometimes',
+           'slug'=>'string|sometimes',
+           'File'=>'sometimes|image',
+           'status'=>'sometimes|string|in:draft,published,deleted|required',
+           'id'=>'sometimes',
+
 
         ];
     }

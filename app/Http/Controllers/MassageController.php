@@ -8,6 +8,10 @@ use App\Models\massage;
 
 class MassageController extends Controller
 {
+    protected massage $massageModel;
+    public function __construct(massage $massageModel){
+        $this->massageModel=$massageModel;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +40,9 @@ class MassageController extends Controller
      */
     public function store(StoremassageRequest $request)
     {
-        //
+        $input=$request->validated();
+        $data=$this->massageModel->store($input);
+        return redirect('/');
     }
 
     /**

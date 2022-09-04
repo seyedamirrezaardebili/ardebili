@@ -50,6 +50,8 @@ class FileManagerController extends Controller
         $date = 'images/file/'.$year . '-' . $month . '-' . $day;
         $path=Storage::put($date,$request->file('File'));
         $input['url']=$path;
+        $a['status']='draft';
+        $this->fileModel->query()->where('key',$input['key'])->update($a);
         $data=$this->fileModel->store($input);
         return redirect('adminpanel/file')->with('data',$data);
     }

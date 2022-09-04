@@ -39,11 +39,11 @@
                 <div class="row">
                     @foreach($data['gruop'] as $group)
                         <div class="col-md-4 col-12 mt-5">
-                        <a href="{{ route('productgroup',$group) }}">
 
+                        <a href="{{ route('productsgroup',$group) }}">
                             <div class="features text-center">
                                 <div class="image position-relative d-inline-block">
-                                    <i class="uil uil-edit-alt h1 text-primary"></i>
+                                    <img class=" h1 text-primary rounded-circle" style="width:20vh; Height:20vh ;" src="{{ Storage::url($group['File'])}}">
                                 </div>
 
                                 <div class="content mt-4">
@@ -96,8 +96,8 @@
                     @foreach($data['crop'] as $key=>$file)
                         <div class="col-lg-4 col-md-6 mb-4 pb-2">
                             <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                                <div class="icon text-center rounded-circle me-3">
-                                    <i data-feather="monitor" class="fea icon-ex-md text-primary"></i>
+                                <div class=" text-center rounded-circle me-3">
+                                        <img class="rounded-circle" style="width:10vh; Height:10vh ;" src="{{ Storage::url($file['File'])}}">
                                 </div>
                                 <div class="flex-1">
                                     <h4 class="title mb-0">{{ $file['title'] }}</h4>
@@ -137,16 +137,16 @@
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset186.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['profit'] }}"> {{ $data['profile'][0]['profit'] }} </span>تومان </h2>
-                            <h6 class="counter-head text-muted">سودآوری </h6>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['profit'] }}"> {{ $data['profile'][0]['profit'] }} </span> </h2>
+                            <h6 class="counter-head text-muted">مرغداری</h6>
                         </div><!--end counter box-->
                     </div>
 
                     <div class="col-md-3 col-6 mt-4 pt-2">
                         <div class="counter-box text-center">
                             <img src="images/illustrator/Asset187.svg" class="avatar avatar-small" alt="">
-                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['Growth'] }}">{{ $data['profile'][0]['Growth'] }}</span>%</h2>
-                            <h6 class="counter-head text-muted">رشد </h6>
+                            <h2 class="mb-0 mt-4"><span class="counter-value" data-target="{{ $data['profile'][0]['Growth'] }}">{{ $data['profile'][0]['Growth'] }}</span></h2>
+                            <h6 class="counter-head text-muted">گلخانه </h6>
                         </div><!--end counter box-->
                     </div>
                 </div><!--end row-->
@@ -163,15 +163,11 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <div class="section-title">
-
                             <h4 class="title title-dark text-white mb-4">ما بیننده و مبتکر خلاق هستیم</h4>
                             <p class="text-light para-dark para-desc mx-auto">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
-                            <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn border border-light mt-4 lightbox">
                                 <video width="320" height="240" autoplay>
                                     <source src="{{ Storage::url($file['url']) }}" type="video/mp4">
                                 </video>
-                            </a>
-
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->

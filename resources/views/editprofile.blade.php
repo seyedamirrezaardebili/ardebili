@@ -64,17 +64,17 @@
                     <small id="number_projectHelp" class="form-text text-muted">  تعداد پروژه های انجام شده وارد کنید </small>
                 </div>
                 <div class="form-group col-5">
-                    <label for="profit">سود</label>
+                    <label for="profit">مرغداری</label>
                     <input type="text" class="form-control" name='profit' id="profit" placeholder="سود شرکت"  value="@if(!empty($data)) {{ $data['profit'] }} @endif">
                     <small id="profitHelp" class="form-text text-muted">  میزان سود وارد کنید  وارد کنید </small>
                 </div>
                 <div class="form-group col-5">
-                    <label for="Growth">رشد</label>
+                    <label for="Growth">گلخانه</label>
                     <input type="text" class="form-control" name='Growth' id="Growth" placeholder="درصد رشد"  value="@if(!empty($data)) {{ $data['Growth'] }} @endif">
                     <small id="GrowthHelp" class="form-text text-muted">  درصد رشد شرکت وارد کنید </small>
                 </div>
                 <div class="form-group col-5">
-                    <label for="Fund">سرمایه</label>
+                    <label for="Fund"> سرمایه گذاری</label>
                     <input type="text" class="form-control" name='Fund' id="Fund" placeholder="سرمایه شرکت"  value="@if(!empty($data)) {{ $data['Fund'] }} @endif">
                     <small id="FundHelp" class="form-text text-muted">  میزان سرمایه شرکت را وارد کنید </small>
                 </div>

@@ -46,9 +46,7 @@
                 <label for="key ">مکان مربوط به فایل را انتخاب کنید </label>
                 <select class="form-select" aria-label="Default select example" name="key" id='key'>
                     <option value="header" selected>پس زمینه  </option>
-                    <option value="movie">فیلم شروع</option>
                     <option value="down">پستر پایین</option>
-                    <option value="up">پس زمیه بالا</option>
                 </select>
             </div>
 

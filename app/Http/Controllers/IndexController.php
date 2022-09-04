@@ -42,10 +42,10 @@ class IndexController extends Controller
     public function index()
     {
 
-        $data['article']=$this->articleModel->all();
-        $data['crop']=$this->cropModel->all();
-        $data['file']=$this->fileModel->all();
-        $data['gruop']=$this->groupModel->all();
+        $data['article']=$this->articleModel->query()->where('status','published')->get();
+        $data['crop']=$this->cropModel->query()->where('status','published')->get();
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
         $data['massage']=$this->massageModel->all();
         $data['profile']=$this->profileModel->all();
         return  view('index')->with('data',$data);
@@ -54,26 +54,43 @@ class IndexController extends Controller
     public function group()
     {
         $data['profile']=$this->profileModel->all();
-        $data['file']=$this->fileModel->all();
-        $data['gruop']=$this->groupModel->all();
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
         return view('indexgroup')->with('data',$data);
     }
 
     public function product()
     {
+
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
         $data['profile']=$this->profileModel->all();
-        $data['file']=$this->fileModel->all();
-        $data['gruop']=$this->groupModel->all();
-        $data['crop']=$this->cropModel->query()->paginate(16);
+        $data['crop']=$this->cropModel->query()->where('status','published')->paginate(16);
         return view('indexproduct')->with('data',$data);
     }
     public function Productgroup()
     {
+
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
         $data['profile']=$this->profileModel->all();
-        $data['file']=$this->fileModel->all();
-        $data['gruop']=$this->groupModel->all();
-        $data['crop']=$this->cropModel->all();
+        $data['crop']=$this->cropModel->query()->where('group_id',$_GET['id'])->where('status','published')->paginate(16);
         return view('indexproduct')->with('data',$data);
+    }
+    public function articleshow()
+    {
+
+        $data['article']=$this->articleModel->query()->where('status','published')->paginate(16);
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
+        $data['profile']=$this->profileModel->all();
+        return view('articleShow')->with('data',$data);
+    }
+    public function aboutus()
+    {
+        $data['profile']=$this->profileModel->all();
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        return view('aboutus')->with('data',$data);
     }
 
 }

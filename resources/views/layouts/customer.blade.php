@@ -72,15 +72,11 @@
                             <a href="{{ route('indexproduct') }}">محصولات </a></span>
                         </li>
                             <li class="has-submenu parent-parent-menu-item">
-                            <a href="{{ route('indexproduct') }}">پروژه ها </a></span>
+                            <a href="{{ route('article') }}">مقالات  </a></span>
                         </li>
                         <li class="has-submenu parent-menu-item">
-                            <a href="javascript:void(0)">درباره ما </a><span class="menu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href="documentation.html" class="sub-menu-item">مقالات </a></li>
-                                <li><a href="changelog.html" class="sub-menu-item">تماس با ما </a></li>
-                                <li><a href="components.html" class="sub-menu-item">درباره ما</a></li>
-                            </ul>
+                            <a href="javascript:void(0)">درباره ما </a> 
+                                <li><a href="{{ route('aboutus') }}" class="sub-menu-item">تماس با ما </a></li>
                         </li>
                     </ul><!--end navigation menu-->
                 </div><!--end navigation-->
@@ -123,7 +119,7 @@
                         <ul class="list-unstyled footer-list mt-4">
                             <li><a href="page-aboutus.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> درباره ما </a></li>
                             <li><a href="{{ route('indexgroup') }}" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> خدمات </a></li>
-                            <li><a href="page-portfolio-modern.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> پروژه </a></li>
+                            <li><a href="[{ route('project') }}" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> پروژه </a></li>
                             <li><a href="{{ route('indexgroup') }}" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> محصولات </a></li>
                         </ul>
                     </div><!--end col-->
@@ -131,18 +127,20 @@
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h5 class="text-dark footer-head">لینک های مفید </h5>
                         <ul class="list-unstyled footer-list mt-4">
-                            <li><a href="page-terms.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> خدمات سایت </a></li>
-                            <li><a href="page-privacy.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> حریم خصوصی </a></li>
-                            <li><a href="documentation.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> مستند </a></li>
-                            <li><a href="changelog.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> تغییرات </a></li>
-                            <li><a href="components.html" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> اجزاء </a></li>
+                            <li><a href="https://www.president.ir/fa/nahad" class="text-muted"><i class="uil uil-angle-left-b me-1"></i>   ریاست جمهوری </a></li>
+                            <li><a href="https://www.maj.ir/" class="text-muted"><i class="uil uil-angle-left-b me-1"></i>  وزرات کشاورزی </a></li>
+                            <li><a href="https://cyberpolice.ir/" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> پلیس فتا </a></li>
+                            <li><a href="https://www.mimt.gov.ir/" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> وزارت صمت </a></li>
+                            <li><a href="https://www.leader.ir/fa/letter" class="text-muted"><i class="uil uil-angle-left-b me-1"></i> دفتر رهبری </a></li>
                         </ul>
                     </div><!--end col-->
 
                     <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                         <h5 class="text-dark footer-head">خبرنامه </h5>
                         <p class="mt-4 text-muted">ثبت نام کنید و آخرین نکات را از طریق ایمیل دریافت کنید.</p>
-                        <form>
+                        <form action='{{ route("index") }}' method="get">
+                                @csrf
+                                @method('get')
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="foot-subscribe foot-white mb-3">
@@ -168,7 +166,7 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="text-sm-start">
-                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> تیم <a href='#'>اکسکود</a>. طراحی شده   <i class="mdi mdi-heart text-danger"></i> توسط  <a href="https://www.linkedin.com/in/seyedamirrezaardebili" target="_blank" class="text-reset">سید امیررضا اردبیلی </a>.</p>
+                            <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> تیم <a href='https://instagram.com/hexcodeteam?igshid=YmMyMTA2M2Y='>hex code</a>. طراحی شده   <i class="mdi mdi-heart text-danger"></i> توسط  <a href="https://www.linkedin.com/in/seyedamirrezaardebili" target="_blank" class="text-reset">سید امیررضا اردبیلی </a>.</p>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->

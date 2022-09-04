@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('massages', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->longText('massage');
+            $table->longText('massage')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

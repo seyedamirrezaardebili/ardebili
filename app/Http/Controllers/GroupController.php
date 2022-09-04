@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\StoreGroupDelateRequest;
 
 class GroupController extends Controller
 {
@@ -65,7 +66,10 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-
+        foreach($_GET as $key=>$value){
+            $group= $this->groupmodel->query()->where('id',$key)->get();
+            return view('groupdelate')->with('group',$group);
+        }
     }
 
     /**
@@ -74,9 +78,12 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit(  Group $group  )
     {
-        //
+        foreach($_GET as $key=>$value){
+        $group= $this->groupmodel->query()->where('id',$key)->get();
+        return view('groupedit')->with('group',$group);
+        }
     }
 
     /**
@@ -88,7 +95,8 @@ class GroupController extends Controller
      */
     public function update(StoreGroupRequest $request, Group $group)
     {
-        //
+        $this->groupmodel->updateAndFetch($request->id,$request->validated());
+        return redirect()->route('adminpanel.group');
     }
 
     /**
@@ -97,8 +105,10 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy(Group $group , StoreGroupDelateRequest $request)
     {
-        //
+        $this->groupmodel->deleteModel($request->id);
+        return redirect()->route('adminpanel.group');
+
     }
 }

@@ -27,9 +27,7 @@ class StoremassageRequest extends FormRequest
             'name'=>'string|sometimes',
             'phone'=>'string|sometimes',
             'email'=>'email|sometimes',
-            'phone'=>'string|sometimes',
-            'id'=>'sometimes',
-
+            'massage'=>'string|sometimes',
         ];
     }
 }

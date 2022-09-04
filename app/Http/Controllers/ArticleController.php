@@ -41,6 +41,9 @@ class ArticleController extends Controller
         return view('articleinput')->with('data',$data);
     }
 
+    
+
+
     /**
      * Store a newly created resource in storage.
      *

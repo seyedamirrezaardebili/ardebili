@@ -42,12 +42,17 @@ Route::prefix('adminpanel')->group(function (){
     Route::put("prouduct/input",[ProductController::class,'update'])->name('adminpanel.product.input');
     Route::delete("prouduct/input",[ProductController::class,'destroy'])->name('adminpanel.product.input');
 
+
     Route::get("group",[GroupController::class,'index'])->name('adminpanel.group');
     Route::get("group/input",[GroupController::class,'create'])->name('adminpanel.group.input');
     Route::post("group/input",[GroupController::class,'store'])->name('adminpanel.group.input');
-    Route::put("group/input",[GroupController::class,'edit'])->name('adminpanel.group.input');
+    Route::get("group/edit/id/{id}",[GroupController::class,'edit'])->name('adminpanel.group.edit');
+    Route::get("group/delete/id/{id}",[GroupController::class,'show'])->name('adminpanel.group.delete');
+    Route::delete("group/delete/id/{id}",[GroupController::class,'delete'])->name('adminpanel.group.delete');
+    Route::put("group/input",[GroupController::class,'update'])->name('adminpanel.group.input');
     Route::delete("group/input",[GroupController::class,'destroy'])->name('adminpanel.group.input');
 
+ 
     Route::get("file",[FileManagerController::class,'index'])->name('adminpanel.file');
     Route::get("file/input",[FileManagerController::class,'create'])->name('adminpanel.file.input');
     Route::post("file/input",[FileManagerController::class,'store'])->name('adminpanel.file.input');
@@ -61,10 +66,15 @@ Route::prefix('adminpanel')->group(function (){
     Route::delete("article/input",[ArticleController::class,'destroy'])->name('adminpanel.article.input');
 
     Route::get("massege",[MassageController::class,'index'])->name('adminpanel.massege');
+    Route::post("massege/input",[MassageController::class,'store'])->name('adminpanel.massege.input');
+
 
 });
 
 Route::get('/',[IndexController::class,'index'])->name('index');
 Route::get('/group',[IndexController::class,'group'])->name('indexgroup');
+Route::get('/article',[IndexController::class,'articleshow'])->name('article');
 Route::get('/product',[IndexController::class,'product'])->name('indexproduct');
-Route::get('/product/id/{id}',[IndexController::class,'Productgroup'])->name('productgroup');
+Route::get('/products',[IndexController::class,'Productgroup']);
+Route::get('/products?id={id}',[IndexController::class,'Productgroup'])->name('productsgroup');
+Route::get('/aboutus',[IndexController::class,'aboutus'])->name('aboutus');
