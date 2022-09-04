@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,16 @@ Route::prefix('adminpanel')->group(function (){
     Route::get("massege",[MassageController::class,'index'])->name('adminpanel.massege');
     Route::post("massege/input",[MassageController::class,'store'])->name('adminpanel.massege.input');
 
+
+
+    Route::get("movie",[MovieController::class,'index'])->name('adminpanel.movie');
+    Route::get("movie/input",[MovieController::class,'create'])->name('adminpanel.movie.input');
+    Route::post("movie/input",[MovieController::class,'store'])->name('adminpanel.movie.input');
+    Route::get("movie/edit/id/{id}",[MovieController::class,'edit'])->name('adminpanel.movie.edit');
+    Route::get("movie/delete/id/{id}",[MovieController::class,'show'])->name('adminpanel.movie.delete');
+    Route::delete("movie/delete/id/{id}",[MovieController::class,'delete'])->name('adminpanel.movie.delete');
+    Route::put("movie/input",[MovieController::class,'update'])->name('adminpanel.movie.input');
+    Route::delete("movie/input",[MovieController::class,'destroy'])->name('adminpanel.movie.input');
 
 });
 

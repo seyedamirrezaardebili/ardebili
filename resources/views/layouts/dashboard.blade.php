@@ -152,6 +152,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('adminpanel.movie') }}">
+                            <span data-feather="users" class="align-text-bottom"></span>
+                            فیلم
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('adminpanel.article') }}">
                             <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                             مقالات
