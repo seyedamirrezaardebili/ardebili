@@ -13,7 +13,7 @@ class UpdatemovieRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UpdatemovieRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'string|sometimes',
+            'status'=>'string|in:draft,published,deleted|sometimes',
+            'title'=>'string|sometimes',
+            'File'=> 'mimes:mp4|max:20000|sometimes',
+            'text1'=>'string|sometimes',
+            'text2'=>'string|sometimes',
+            'text3'=>'string|sometimes',
         ];
     }
 }
