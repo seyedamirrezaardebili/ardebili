@@ -30,8 +30,8 @@ class StoreArticleRequest extends FormRequest
            'File'=>'image|sometimes',
            'group_id'=>'string|required',
            'status'=>'string|in:draft,published,deleted|required',
-           'email'=>'email|sometimes',
            'id'=>'sometimes',
+           'name'=>'required|string'
         ];
     }
 }

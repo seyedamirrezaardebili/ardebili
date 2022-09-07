@@ -10,10 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Article extends BaseModel
 {
     use HasFactory,SoftDeletes;
+    protected $table='articles';
+
     protected  $fillable=[
         'title',
         'slug',
         'body',
+        'name',
         'File',
         'group_id',
         'status',

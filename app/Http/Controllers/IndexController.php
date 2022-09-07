@@ -10,6 +10,7 @@ use App\Models\File;
 use App\Models\Group;
 use App\Models\index;
 use App\Models\massage;
+use App\Models\movie;
 use App\Models\post;
 use App\Models\profile;
 
@@ -22,13 +23,14 @@ class IndexController extends Controller
     protected massage $massageModel;
     protected post $postModel;
     protected profile $profileModel;
+    protected movie $movieModel;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct(Article $articleModel , crop $cropModel , File $fileModel ,Group $groupModel,massage $massageModel ,post $postModel ,profile $profileModel)
+    public function __construct( movie $movieModel ,Article $articleModel , crop $cropModel , File $fileModel ,Group $groupModel,massage $massageModel ,post $postModel ,profile $profileModel)
     {
         $this->articleModel=$articleModel;
         $this->cropModel=$cropModel;
@@ -37,6 +39,7 @@ class IndexController extends Controller
         $this->massageModel=$massageModel;
         $this->postModel=$postModel;
         $this->profileModel=$profileModel;
+        $this->movieModel=$movieModel;
     }
 
     public function index()
@@ -46,6 +49,7 @@ class IndexController extends Controller
         $data['crop']=$this->cropModel->query()->where('status','published')->get();
         $data['file']=$this->fileModel->query()->where('status','published')->get();
         $data['gruop']=$this->groupModel->query()->where('status','published')->get();
+        $data['movie']=$this->movieModel->query()->where('status','published')->get();
         $data['massage']=$this->massageModel->all();
         $data['profile']=$this->profileModel->all();
         return  view('index')->with('data',$data);

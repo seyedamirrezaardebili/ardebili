@@ -25,7 +25,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $data=$this->groupmodel->query()->orderby('id')->get();
+        $data=$this->groupmodel->query()->orderby('id')->paginate(16);
         return view('group')->with('data',$data);
     }
 
@@ -48,12 +48,16 @@ class GroupController extends Controller
     public function store(StoreGroupRequest $request,Filesystem  $filesystem)
     {
         $input=$request->validated();
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
-        $date = 'images/groups/'.$year . '-' . $month . '-' . $day;
-        $path=Storage::put($date,$request->file('File'));
-        $input['File']=$path;
+        if ($request->has('File')){
+
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/groups/'.$year . '-' . $month . '-' . $day. generate_otp();
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+
+        }
         $data=$this->groupmodel->store($input);
         return redirect('adminpanel/group')->with('data',$data);
     }
@@ -95,7 +99,16 @@ class GroupController extends Controller
      */
     public function update(StoreGroupRequest $request, Group $group)
     {
-        $this->groupmodel->updateAndFetch($request->id,$request->validated());
+        $input = $request->validated();
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/groups/'.$year . '-' . $month . '-' . $day. generate_otp();
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+        }
+        $this->groupmodel->updateAndFetch($request->id,$input);
         return redirect()->route('adminpanel.group');
     }
 

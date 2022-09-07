@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longtext('File')->nullable();
             $table->foreignIdFor(Group::class);
             $table->string('title')->nullable();
+            $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->longtext('body');
             $table->enum('status', ['draft', 'published', 'deleted'])->default('draft');

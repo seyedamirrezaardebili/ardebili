@@ -31,6 +31,7 @@ class UpdatemovieRequest extends FormRequest
             'text1'=>'string|sometimes',
             'text2'=>'string|sometimes',
             'text3'=>'string|sometimes',
+            'id'=>'sometimes'
         ];
     }
 }

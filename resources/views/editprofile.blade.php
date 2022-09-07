@@ -9,6 +9,7 @@
     تلاونگ اردبیل
 @endsection()
 
+
 @section('main')
         <form method="post" action="{{route('adminpanel.editprofile')}}"  enctype="multipart/form-data" class='gap-3'>
             @csrf
@@ -20,7 +21,11 @@
                     <small id="NameHelp" class="form-text text-muted ">نام شرکت را به طور کامل وارد کنید.</small>
                 </div>
                 <div class="col-10">
-                    <div class="mb-3" >
+                    <div class="mb-3 gap-4 mb-5" >
+                    @if(!empty($data['file']))
+                        <img src="{{ Storage::url($data['file']) }}" style="width:15vh; height: 15vh " class="rounded-circle mb-5" >
+                    @endif
+                    <br>
                         <label for="File" class="form-label">  لوگو شرکت را بارگذاری کنید</label>
                         <input class="form-control" type="File" id="File" name="File" >
                     </div>

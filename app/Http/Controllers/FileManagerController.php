@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFileManagerRequest;
 use App\Models\File;
 use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EditFileManagerRequest;
+use App\Http\Requests\StoreFileManagerRequest;
 
 class FileManagerController extends Controller
 {
@@ -21,7 +23,9 @@ class FileManagerController extends Controller
      */
     public function index()
     {
-        return view('filemanager');
+
+        $data=$this->fileModel->query()->paginate(16);
+        return view('filemanager')->with('data',$data);
     }
 
     /**
@@ -44,14 +48,20 @@ class FileManagerController extends Controller
     {
 
         $input=$request->validated();
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
-        $date = 'images/file/'.$year . '-' . $month . '-' . $day;
-        $path=Storage::put($date,$request->file('File'));
-        $input['url']=$path;
-        $a['status']='draft';
-        $this->fileModel->query()->where('key',$input['key'])->update($a);
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp();
+            $path=Storage::put($date,$request->file('File'));
+            $input['url']=$path;
+            $a['status']='draft';
+            if($input['key']=='down'){
+                if($input['status']=='published'){
+                    $this->fileModel->query()->where('key',$input['key'])->update($a);
+                }
+            }
+        }
         $data=$this->fileModel->store($input);
         return redirect('adminpanel/file')->with('data',$data);
     }
@@ -64,8 +74,12 @@ class FileManagerController extends Controller
      */
     public function show(File $file)
     {
-        //
+        foreach($_GET as $key =>$data){
+            $id=$key;
+        }
+        return view('filemanagerdelete')->with('data',$id);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +89,12 @@ class FileManagerController extends Controller
      */
     public function edit(File $file)
     {
-        //
+        foreach($_GET as $key =>$data){
+        $id=$key;
+        }
+        $data=$this->fileModel->query()->where('id',$id)->get();
+
+        return  view('fileManageredit')->with('data',$data);
     }
 
     /**
@@ -87,7 +106,26 @@ class FileManagerController extends Controller
      */
     public function update(StoreFileManagerRequest $request, File $file)
     {
-        //
+        
+        $input =$request->validated();
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp(16);
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+
+        }
+        if($input['key']=='down'){
+            if($input['status']=='published'){
+
+                $a['status']='draft';
+                $this->fileModel->query()->where('key',$input['key'])->update($a);
+            }
+    }
+        $this->fileModel->updateAndFetch($request->id,$input);
+        return redirect()->route('adminpanel.file');
     }
 
     /**
@@ -96,8 +134,9 @@ class FileManagerController extends Controller
      * @param  \App\Models\FileManager  $file
      * @return \Illuminate\Http\Response
      */
-    public function destroy(File $file)
+    public function destroy(StoreFileManagerRequest $request, File $file)
     {
-        //
+        $this->fileModel->deleteModel($request->id);
+        return redirect()->route('adminpanel.file');
     }
 }

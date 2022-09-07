@@ -22,7 +22,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view('movie');
+        $data=$this->movieModel->query()->paginate(16);
+        return view('movie')->with('data',$data);
     }
 
     /**
@@ -45,15 +46,17 @@ class MovieController extends Controller
     {
         
         $input=$request->validated();
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
-        $date = 'images/movie/'.$year . '-' . $month . '-' . $day;
-        $path=Storage::put($date,$request->file('File'));
-        $input['url']=$path;
-        $a['status']='draft';
-        $this->fileModel->query()->update($a);
-        $data=$this->fileModel->store($input);
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/movie/'.$year . '-' . $month . '-' . $day. generate_otp();
+            $path=Storage::put($date,$request->file('File'));
+            $input['url']=$path;
+            $a['status']='draft';
+            $this->movieModel->query()->where('status','published')->update($a);
+        }    
+        $data=$this->movieModel->store($input);
         return redirect('adminpanel/movie')->with('data',$data);
     }
 
@@ -65,7 +68,10 @@ class MovieController extends Controller
      */
     public function show(movie $movie)
     {
-        //
+        foreach($_GET as $key =>$data){
+            $id=$key;
+        }
+        return view('moviedelete')->with('data',$id);
     }
 
     /**
@@ -76,7 +82,11 @@ class MovieController extends Controller
      */
     public function edit(movie $movie)
     {
-        //
+        foreach($_GET as $key =>$data){
+            $id=$key;
+            }
+        $data=$this->movieModel->query()->where('id',$id)->get();
+        return view('movieedit')->with('data',$data);
     }
 
     /**
@@ -88,7 +98,23 @@ class MovieController extends Controller
      */
     public function update(UpdatemovieRequest $request, movie $movie)
     {
-        //
+        $input =$request->validated();
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp(16);
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+
+        }
+        if($input['status']=='published'){
+            $a['status']='draft';
+            $this->movieModel->query()->update($a);
+        }
+    
+        $this->movieModel->updateAndFetch($request->id,$input);
+        return redirect()->route('adminpanel.movie');
     }
 
     /**
@@ -97,8 +123,9 @@ class MovieController extends Controller
      * @param  \App\Models\movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(movie $movie)
+    public function destroy(movie $movie ,UpdatemovieRequest $request)
     {
-        //
+        $this->movieModel->deleteModel($request->id);
+        return redirect()->route('adminpanel.movie');
     }
 }

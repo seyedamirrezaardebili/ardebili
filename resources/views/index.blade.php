@@ -43,7 +43,7 @@
                         <a href="{{ route('productsgroup',$group) }}">
                             <div class="features text-center">
                                 <div class="image position-relative d-inline-block">
-                                    <img class=" h1 text-primary rounded-circle" style="width:20vh; Height:20vh ;" src="{{ Storage::url($group['File'])}}">
+                                    <img class=" h1 text-primary rounded-circle" style="width:12vh; Height:12vh ;" src="{{ Storage::url($group['File'])}}">
                                 </div>
 
                                 <div class="content mt-4">
@@ -55,40 +55,37 @@
 
                         </div><!--end col-->
                     @endforeach
-
                 </div><!--end row-->
             </div><!--end container-->
-
             <div class="container mt-100 mt-60">
-                <div class="row align-items-center">
+                <div class="row align-items-center ">
                     <div class="col-lg-5 col-md-5">
-                        @foreach($data['file'] as $key=>$file)
-                            @if($file['key']=='movie')
+                        @foreach($data['movie'] as $file)
                                 <div class="position-relative">
-                                    <img src="{{ Storage::url($file['url'])}}" class="rounded img-fluid mx-auto d-block" alt="">
                                     <div class="play-icon">
                                         <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn lightbox">
-                                            <video width="320" height="240" autoplay>
+                                            <video width="320" height="240" controls class="px-4">
                                                 <source src="{{ Storage::url($file['url'])}}" type="video/mp4">
+                                                <source src="{{ Storage::url($file['url'])}}" type="video/ogg">
                                             </video>
                                         </a>
                                     </div>
                                 </div>
-                            @endif
-                        @endforeach
+
                     </div><!--end col-->
 
-                    <div class="col-lg-7 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                    <div class="col-lg-7 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0 px-4">
                         <div class="section-title ms-lg-4">
-                            <h4 class="title mb-4">راه حل کسب و کار راه اندازی</h4>
-                            <p class="text-muted">شروع به کار با <span class="text-primary fw-bold">لنـدریـک </span> که می تواند هر آنچه را که شما برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
-                            <ul class="list-unstyled text-muted">
-                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>راه حل های بازاریابی دیجیتال برای فردا</li>
-                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>آژانس بازاریابی با استعداد و با تجربه ما</li>
-                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>پوست خود را متناسب با نام تجاری خود ایجاد کنید</li>
+                            <h4 class="title mb-4">{{ $file['name'] }}</h4>
+                            <p class="text-muted"> {{ $file['ti'] }} </p>
+                            <ul class="list-unstyled text-muted" >
+                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>{{ $file['text1'] }}</li>
+                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span> {{ $file['text2'] }}</li>
+                                <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>{{ $file['text3'] }} </li>
                             </ul>
                         </div>
                     </div><!--end col-->
+                    @endforeach
                 </div><!--end row-->
             </div><!--end container-->
             <div class="container mt-100 mt-60">
@@ -163,11 +160,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <div class="section-title">
-                            <h4 class="title title-dark text-white mb-4">ما بیننده و مبتکر خلاق هستیم</h4>
-                            <p class="text-light para-dark para-desc mx-auto">کار با لنـدریــک را شروع کنید که می تواند همه چیزهایی را که برای ایجاد آگاهی ، ایجاد ترافیک ، اتصال به آن نیاز دارید فراهم کند.</p>
-                                <video width="320" height="240" autoplay>
-                                    <source src="{{ Storage::url($file['url']) }}" type="video/mp4">
-                                </video>
+                            <h4 class="title title-dark text-white mb-4">ما طراح  و مجری پروژه ها شما هستیم.</h4>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->

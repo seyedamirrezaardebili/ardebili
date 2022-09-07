@@ -10,7 +10,7 @@
 @endsection()
 
 @section('main')
-    <form method="post" action="{{ route('adminpanel.file.input') }}"  enctype="multipart/form-data" class='gap-3'>
+    <form method="post" action="{{ route('adminpanel.movie.input') }}"  enctype="multipart/form-data" class='gap-3'>
         @csrf
         @method('post')
         <div class="form-group gap-3 form-row">
@@ -37,18 +37,18 @@
             </div>
             <div class="form-group col-5">
                 <label for="title">متن اول</label>
-                <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  >
-                <small id="titleHelp" class="form-text text-muted">  عنوان را به طور کامل وارد کنید </small>
+                <input type="text" class="form-control" name='text1' id="text1" placeholder="متن"  >
+                <small id="titleHelp" class="form-text text-muted">  متن 1 را به طور کامل وارد کنید </small>
             </div>
             <div class="form-group col-5">
                 <label for="title">متن دوم</label>
-                <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  >
-                <small id="titleHelp" class="form-text text-muted">  عنوان را به طور کامل وارد کنید </small>
+                <input type="text" class="form-control" name='text2' id="text2" placeholder="متن"  >
+                <small id="titleHelp" class="form-text text-muted">  متن 2 را به طور کامل وارد کنید </small>
             </div>
             <div class="form-group col-5">
                 <label for="title">متن سوم</label>
-                <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  >
-                <small id="titleHelp" class="form-text text-muted">  عنوان را به طور کامل وارد کنید </small>
+                <input type="text" class="form-control" name='text3' id="text3" placeholder="متن"  >
+                <small id="titleHelp" class="form-text text-muted">  متن 3 را به طور کامل وارد کنید </small>
             </div>
             <div class="form-group col-5">
                 <label for="status ">وضعیت انتشار را انتخاب کنید </label>

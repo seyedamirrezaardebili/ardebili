@@ -8,12 +8,11 @@
 @section('companyName')
     تلاونگ اردبیل
 @endsection()
-
 @section('main')
-        <form method="post" action="{{ route('adminpanel.product.input') }}"  enctype="multipart/form-data" class='gap-3'>
+<form method="post" action="{{ route('adminpanel.product.input') }}"  enctype="multipart/form-data" class='gap-3'>
             @csrf
             @method('put')
-            <input type="hidden" name="id" id='id' value="{{ old('name',$crop['data']['id_id']) }}" >
+            <input type="hidden" name="id" id='id' value="{{ old('id',$crop['data']['id_id']) }}" >
             <div class="form-group gap-3 form-row">
                 <div class='col-10'>
                     <label for="name">نام محصول</label>
@@ -36,7 +35,7 @@
 
                 <div class="form-group col-5">
                     <label for="title">عنوان</label>
-                    <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  value="{{ old('name',$crop['data']['title']) }}">
+                    <input type="text" class="form-control" name='title' id="title" placeholder="عنوان"  value="{{ old('title',$crop['data']['title']) }}">
                     <small id="titleHelp" class="form-text text-muted">  عنوان را به طور کامل وارد کنید </small>
                 </div>
                 <div class="form-group col-5">
@@ -53,15 +52,15 @@
                     <option value="draft" @selected(old('status') == 'draft') >پیش نویس </option>
                     </select>
                 </div>
+                
                 <div class="form-group col-5">
                     <label for="Group_id ">دسته بندی را انتخاب کنید </label>
                     <select class="form-select" aria-label="Default select example" name="group_id" id='group_id'>
                         @foreach($crop['group'] as $group)  
-                        <option value="{{ $group['id'] }}" >{{ $group['name'] }}</option>
+                        <option value="{{ old('group_id',$group['id']) }}" >{{ $group['name'] }}</option>
                         @endforeach
                     </select>
                 </div>
-
             </div>
 
 

@@ -15,6 +15,7 @@ adminpanel
             @method('put')
             <div class="form-group gap-3 form-row">
                 <div class='col-10'>
+                    <input type="hidden" name="id" value="{{ old('id',$group[0]['id']) }}">
                     <label for="name">نام دسته بندی</label>
                     <input class="form-control" type="text" placeholder="نام دسته بندی" name="name" id="name" value="{{ old('name',$group[0]['name']) }}" >
                     <small id="NameHelp" class="form-text text-muted ">نام دسته بندی را به طور کامل وارد کنید.</small>

@@ -58,7 +58,7 @@ class ProfileController extends Controller
             $year = Carbon::now()->year;
             $month = Carbon::now()->month;
             $day = Carbon::now()->day;
-            $date = 'image/profile/' . $year . '-' . $month . '-' . $day;
+            $date = 'image/profile/' . $year . '-' . $month . '-' . $day. generate_otp(16);
             $path = Storage::put($date, $request->file('File'));
             $input['file'] = $path;
         }

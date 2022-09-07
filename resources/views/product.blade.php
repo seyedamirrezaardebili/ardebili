@@ -6,22 +6,21 @@ adminpanel
 
 
 @section('companyName')
-    تلاونگ اردبیل
+تلاونگ اردبیل
 @endsection()
 
 @section('main')
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">محصولات</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-                   <a href="{{ route('adminpanel.product.input') }}"> <button type="button" class="btn btn-sm btn-outline-secondary">ساخت</button></a>
-                </div>
-            </div>
-        </div>
-
-        <canvas class="my-4 w-100" id="myChart" width="900" height="10"></canvas>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">محصولات</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group me-2">
+      <a href="{{ route('adminpanel.product.input') }}"> <button type="button" class="btn btn-sm btn-outline-secondary">ساخت</button></a>
+    </div>
+  </div>
+</div>
+<canvas class="my-4 w-100" id="myChart" width="900" height="10"></canvas>
 @endsection()
-@section("content") 
+@section("content")
 <table class="table">
   <thead>
     <tr>
@@ -40,7 +39,7 @@ adminpanel
   <tbody>
 
 
-  @foreach($data['crop']['data'] as $key=>$dat)
+    @foreach($data['crop']['data'] as $key=>$dat)
 
     <tr>
       <td scope="row">{{ $dat['id'] }}</td>
@@ -50,9 +49,9 @@ adminpanel
       <td>{{ $dat['title'] }}</td>
       <td>{{ $dat['status'] }}</td>
       <td>{{ $dat['body'] }}</td>
-      <td> {{ $data['group'][$dat['group_id']]['name'] }}</td>
+      <td>@if(!empty( $data['group'][$dat['group_id']])) {{ $data['group'][$dat['group_id']]['name']}} @endif </td>
       <td hidden>
-      {{ 
+      {{
         $dat['id_id']=$dat['id']
       }}
       </td>

@@ -7,8 +7,8 @@ use App\Models\crop;
 use App\Models\Group;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\cropdeleterequest;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\cropdeleterequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function index()
     {
         $data['group']=$this->gropModel->all();
-        $data['crop']=$this->cropModel->paginate()->toarray();
+        $data['crop']=$this->cropModel->paginate(16)->toarray();
         return view('product')->with('data',$data);
     }
 
@@ -56,12 +56,14 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $input=$request->validated();
-        $year = Carbon::now()->year;
-        $month = Carbon::now()->month;
-        $day = Carbon::now()->day;
-        $date = 'images/product/'.$year . '-' . $month . '-' . $day;
-        $path=Storage::put($date,$request->file('File'));
-        $input['File']=$path;
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/product/'.$year . '-' . $month . '-' . $day. generate_otp(16);
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+        }
         $data=$this->cropModel->store($input);
         return redirect('adminpanel/prouduct')->with('data',$data);
     }
@@ -100,7 +102,16 @@ class ProductController extends Controller
      */
     public function update(StoreProductRequest $request, crop $crop)
     {
-        $this->cropModel->updateAndFetch($request->id,$request->validated());
+        $input =$request->validated();
+        if ($request->has('File')){
+            $year = Carbon::now()->year;
+            $month = Carbon::now()->month;
+            $day = Carbon::now()->day;
+            $date = 'images/product/'.$year . '-' . $month . '-' . $day. generate_otp(16);
+            $path=Storage::put($date,$request->file('File'));
+            $input['File']=$path;
+        }
+        $this->cropModel->updateAndFetch($request->id,$input);
         return redirect()->route('adminpanel.product');
     }
 

@@ -1,16 +1,18 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\AuthUserController;
-use App\Http\Controllers\FileManagerController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\GroupController;
-use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\FileManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +41,6 @@ Route::prefix('adminpanel')->group(function (){
     Route::get("prouduct/edit/id/{id}",[ProductController::class,'edit'])->name('adminpanel.product.edit');
     Route::get("prouduct/delete/id/{id}",[ProductController::class,'show'])->name('adminpanel.product.delete');
     Route::delete("prouduct/delete/id/{id}",[ProductController::class,'delete'])->name('adminpanel.product.delete');
-
     Route::put("prouduct/input",[ProductController::class,'update'])->name('adminpanel.product.input');
     Route::delete("prouduct/input",[ProductController::class,'destroy'])->name('adminpanel.product.input');
 
@@ -53,18 +54,30 @@ Route::prefix('adminpanel')->group(function (){
     Route::put("group/input",[GroupController::class,'update'])->name('adminpanel.group.input');
     Route::delete("group/input",[GroupController::class,'destroy'])->name('adminpanel.group.input');
 
- 
+
+
+
     Route::get("file",[FileManagerController::class,'index'])->name('adminpanel.file');
     Route::get("file/input",[FileManagerController::class,'create'])->name('adminpanel.file.input');
     Route::post("file/input",[FileManagerController::class,'store'])->name('adminpanel.file.input');
-    Route::put("file/input",[FileManagerController::class,'edit'])->name('adminpanel.file.input');
+    Route::get("file/edit/id/{id}",[FileManagerController::class,'edit'])->name('adminpanel.file.edit');
+    Route::get("file/delete/id/{id}",[FileManagerController::class,'show'])->name('adminpanel.file.delete');
+    Route::delete("file/delete/id/{id}",[FileManagerController::class,'delete'])->name('adminpanel.file.delete');
+    Route::put("file/input",[FileManagerController::class,'update'])->name('adminpanel.file.input');
     Route::delete("file/input",[FileManagerController::class,'destroy'])->name('adminpanel.file.input');
+
+
 
     Route::get("article",[ArticleController::class,'index'])->name('adminpanel.article');
     Route::get("article/input",[ArticleController::class,'create'])->name('adminpanel.article.input');
     Route::post("article/input",[ArticleController::class,'store'])->name('adminpanel.article.input');
-    Route::put("article/input",[ArticleController::class,'edit'])->name('adminpanel.article.input');
+    Route::get("article/edit/id/{id}",[ArticleController::class,'edit'])->name('adminpanel.article.edit');
+    Route::get("article/delete/id/{id}",[ArticleController::class,'show'])->name('adminpanel.article.delete');
+    Route::delete("article/delete/id/{id}",[ArticleController::class,'delete'])->name('adminpanel.article.delete');
+    Route::put("article/input",[ArticleController::class,'update'])->name('adminpanel.article.input');
     Route::delete("article/input",[ArticleController::class,'destroy'])->name('adminpanel.article.input');
+
+
 
     Route::get("massege",[MassageController::class,'index'])->name('adminpanel.massege');
     Route::post("massege/input",[MassageController::class,'store'])->name('adminpanel.massege.input');
@@ -89,3 +102,5 @@ Route::get('/product',[IndexController::class,'product'])->name('indexproduct');
 Route::get('/products',[IndexController::class,'Productgroup']);
 Route::get('/products?id={id}',[IndexController::class,'Productgroup'])->name('productsgroup');
 Route::get('/aboutus',[IndexController::class,'aboutus'])->name('aboutus');
+
+

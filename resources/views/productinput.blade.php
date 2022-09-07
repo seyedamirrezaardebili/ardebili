@@ -27,7 +27,8 @@
                 </div>
             </div>
             <br>
-            <br>
+            <br>        
+
             <br>
             <div class='form-row  gap-3'>
 
@@ -51,6 +52,7 @@
                     <option value="draft">پیش نویس </option>
                     </select>
                 </div>
+
                 <div class="form-group col-5">
                     <label for="Group_id ">دسته بندی را انتخاب کنید </label>
                     <select class="form-select" aria-label="Default select example" name="group_id" id='group_id'>

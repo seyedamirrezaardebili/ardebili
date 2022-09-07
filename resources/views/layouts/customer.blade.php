@@ -41,7 +41,7 @@
                 <div>
                     <a class="logo" href="{{ route('index') }}">
                         <img src="{{ Storage::url( $data['profile'][0]['file'] ) }}" class="l-light d-inline-block" height="24" alt="">
-                        <span class='text-light  d-inline-block'>{{$data['profile'][0]['name'] }}</span>
+                        <span class='text-silver  d-inline-block'>{{$data['profile'][0]['name'] }}</span>
                     </a>
                 </div>
 
@@ -85,15 +85,14 @@
         <!-- Navbar End -->
             <!-- Hero Start -->
             @foreach($data['file'] as $key=>$file)
-        @if($file['key']=='header')
-      <section class="bg-half-170 d-table w-100" style='background: url({{ Storage::url($file["url"]) }}) center center;' id="home">
-            <div class="bg-overlay"></div>
-            <div class="container">
+                @if($file['key']=='header')
+                <section class="bg-half-170 d-table w-100" style="background: url({{ Storage::url($file['url']) }}) center center;" id="home">            <div class="bg-overlay"></div>
+                    <div class="container">
 
-            </div><!--end container-->
-        </section><!--end section-->
+                    </div><!--end container-->
+                </section><!--end section-->
 
-        @endif
+                @endif
       @endforeach
 
         @yield('content')

@@ -19,7 +19,8 @@ class MassageController extends Controller
      */
     public function index()
     {
-       return view('massage');
+        $data= $this->massageModel->query()->paginate(16);
+       return view('massage')->with('data',$data);
     }
 
     /**
