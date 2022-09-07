@@ -36,50 +36,69 @@
 
         <!-- Navbar STart -->
         <header id="topnav" class="defaultscroll sticky">
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a class="logo" href="{{ route('index') }}">
-                        <img src="{{ Storage::url( $data['profile'][0]['file'] ) }}" class="l-light d-inline-block" height="24" alt="">
-                        <span class='text-silver  d-inline-block'>{{$data['profile'][0]['name'] }}</span>
-                    </a>
-                </div>
+           <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light " style='background-color: #6dc77a ;' posi>
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
-                </div>
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('index') }}">
+        <img
+          src="{{ Storage::url( $data['profile'][0]['file'] ) }}"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+        <span class='text-darl  d-inline-block'>{{$data['profile'][0]['name'] }}</span>
 
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu nav-light">
-                        <li><a href="{{ route('index') }}" class="sub-menu-item">صفحه اصلی </a></li>
-                        <li class="has-submenu parent-parent-menu-item">
-                            <a href="{{ route('indexgroup') }}"> خدمات </a></span>
-                        </li>
+       
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('index') }}">صفحه اصلی </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('indexgroup') }}">خدمات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('indexproduct') }}">محصولات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('article') }}">مقالات</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('aboutus') }}">تماس با ما</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
 
-                        <li class="has-submenu parent-parent-menu-item">
-                            <a href="{{ route('indexproduct') }}">محصولات </a></span>
-                        </li>
-                            <li class="has-submenu parent-parent-menu-item">
-                            <a href="{{ route('article') }}">مقالات  </a></span>
-                        </li>
-                        <li class="has-submenu parent-menu-item">
-                                <li><a href="{{ route('aboutus') }}" class="sub-menu-item">تماس با ما </a></li>
-                        </li>
-                    </ul><!--end navigation menu-->
-                </div><!--end navigation-->
-            </div><!--end container-->
+    <!-- Right elements -->
+    
+      <!-- Avatar -->
+      
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
         </header><!--end header-->
         <!-- Navbar End -->
             <!-- Hero Start -->

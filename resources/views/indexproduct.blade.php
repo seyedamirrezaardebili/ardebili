@@ -1,6 +1,6 @@
 
 
-@extends('layouts.customer')
+@extends('layouts.customernav')
 
 
 
