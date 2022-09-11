@@ -33,6 +33,10 @@ class Group extends BaseModel
     {
         return $this->hasMany(Article::class);
     }
+    public function project()
+    {
+        return $this->hasMany(project::class);
+    }
 
     public function orderLastData(){
         return $this->query()->orderByDesc('id')->get();

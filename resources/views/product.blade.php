@@ -49,7 +49,7 @@ adminpanel
       <td>{{ $dat['title'] }}</td>
       <td>{{ $dat['status'] }}</td>
       <td>{{ $dat['body'] }}</td>
-      <td>@if(!empty( $data['group'][$dat['group_id']])) {{ $data['group'][$dat['group_id']]['name']}} @endif </td>
+      <td>@if(!empty( $data['group'][((int)$dat['group_id']-1)])) {{ $data['group'][(int)$dat['group_id']-1]['name']}} @endif </td>
       <td hidden>
       {{
         $dat['id_id']=$dat['id']
@@ -59,6 +59,8 @@ adminpanel
       <td><a href="{{ route('adminpanel.product.delete',$dat) }}"><button type="button" class="btn btn-danger">حذف</button></a></td>
     </tr>
     @endforeach
+
+
   </tbody>
 </table>
 

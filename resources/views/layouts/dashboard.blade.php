@@ -134,17 +134,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('adminpanel.product') }}">
-                            <span data-feather="file" class="align-text-bottom"></span>
-                            محصولات
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('adminpanel.group') }}">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
                             دسته بندی
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('adminpanel.product') }}">
+                            <span data-feather="file" class="align-text-bottom"></span>
+                            محصولات
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('adminpanel.file') }}">
                             <span data-feather="users" class="align-text-bottom"></span>
@@ -161,6 +162,12 @@
                         <a class="nav-link" href="{{ route('adminpanel.article') }}">
                             <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                             مقالات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('adminpanel.project') }}">
+                            <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+                            پروژه
                         </a>
                     </li>
                     <li class="nav-item">

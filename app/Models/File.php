@@ -23,6 +23,10 @@ class File extends BaseModel
     {
         return $this->belongsTo(Article::class);
     }
+    public function project()
+    {
+        return $this->belongsTo(project::class);
+    }
 
     public function post()
     {

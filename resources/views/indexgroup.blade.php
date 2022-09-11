@@ -25,21 +25,20 @@
         </section><!--end section-->
 
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-2">
             @foreach($data['gruop'] as $key=>$group)
 
-            <div class="col gap-2 border-1" tyle="box-shadow: 2px 2px 8px #E4DFDA ">
+            <div class="col gap-2 border-1 shadow-lg p-3 my-4 bg-body rounded" >
                 <div class="card">
                 <img src="{{ Storage::url( $group['File'] ) }}" class="card-img-top" alt="{{ $group['title'] }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $group['title'] }}</h5>
-                    <h6 class="card-title">{{ $group['name'] }}</h6>
-                    <p class="card-text">{{ $group['body'] }}</p>
+                    <h5 class="card-title"><div class="d-flex justify-content-between gap-3"><div>عنوان:</div><div>{{ $group['title'] }}</div></div></h5>
+                    <h6 class="card-title"><div class="d-flex justify-content-between gap-3"><div>نام گروه:</div><div>{{ $group['name'] }}</div></div></h6>
+                    <p class="card-text"><div class="d-flex justify-content-between gap-3"><div> توضیحات:</div><div>{{ $group['body'] }}</div></div></p>
                 </div>
                 </div>
             </div>
             @endforeach
 
         </div>
-
 @endsection

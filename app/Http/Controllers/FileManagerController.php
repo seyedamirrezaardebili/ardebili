@@ -56,10 +56,8 @@ class FileManagerController extends Controller
             $path=Storage::put($date,$request->file('File'));
             $input['url']=$path;
             $a['status']='draft';
-            if($input['key']=='down'){
-                if($input['status']=='published'){
-                    $this->fileModel->query()->where('key',$input['key'])->update($a);
-                }
+            if($input['status']=='published'){
+                $this->fileModel->query()->where('key',$input['key'])->update($a);
             }
         }
         $data=$this->fileModel->store($input);
@@ -117,13 +115,11 @@ class FileManagerController extends Controller
             $input['File']=$path;
 
         }
-        if($input['key']=='down'){
-            if($input['status']=='published'){
+        if($input['status']=='published'){
 
-                $a['status']='draft';
-                $this->fileModel->query()->where('key',$input['key'])->update($a);
-            }
-    }
+        $a['status']='draft';
+            $this->fileModel->query()->where('key',$input['key'])->update($a);
+        }
         $this->fileModel->updateAndFetch($request->id,$input);
         return redirect()->route('adminpanel.file');
     }

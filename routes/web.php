@@ -11,6 +11,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MassageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\FileManagerController;
 
@@ -78,6 +79,15 @@ Route::prefix('adminpanel')->group(function (){
     Route::delete("article/input",[ArticleController::class,'destroy'])->name('adminpanel.article.input');
 
 
+    Route::get("project",[ProjectController::class,'index'])->name('adminpanel.project');
+    Route::get("project/input",[ProjectController::class,'create'])->name('adminpanel.project.input');
+    Route::post("project/input",[ProjectController::class,'store'])->name('adminpanel.project.input');
+    Route::get("project/edit/id/{id}",[ProjectController::class,'edit'])->name('adminpanel.project.edit');
+    Route::get("project/delete/id/{id}",[ProjectController::class,'show'])->name('adminpanel.project.delete');
+    Route::delete("project/delete/id/{id}",[ProjectController::class,'delete'])->name('adminpanel.project.delete');
+    Route::put("project/input",[ProjectController::class,'update'])->name('adminpanel.project.input');
+    Route::delete("project/input",[ProjectController::class,'destroy'])->name('adminpanel.project.input');
+
 
     Route::get("massege",[MassageController::class,'index'])->name('adminpanel.massege');
     Route::post("massege/input",[MassageController::class,'store'])->name('adminpanel.massege.input');
@@ -101,6 +111,10 @@ Route::get('/article',[IndexController::class,'articleshow'])->name('article');
 Route::get('/product',[IndexController::class,'product'])->name('indexproduct');
 Route::get('/products',[IndexController::class,'Productgroup']);
 Route::get('/products?id={id}',[IndexController::class,'Productgroup'])->name('productsgroup');
+Route::get('/products/pro?id={id}',[IndexController::class,'Productgroup'])->name('productid');
 Route::get('/aboutus',[IndexController::class,'aboutus'])->name('aboutus');
+Route::get('/project',[IndexController::class,'projectshow'])->name('projectindex');
+
+
 
 

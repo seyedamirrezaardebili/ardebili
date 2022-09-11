@@ -40,8 +40,8 @@
                 <!-- Logo container-->
                 <div>
                     <a class="logo" href="{{ route('index') }}">
-                        <img src="{{ Storage::url( $data['profile'][0]['file'] ) }}" class="l-light d-inline-block" height="24" alt="">
-                        <span class='text-silver  d-inline-block'>{{$data['profile'][0]['name'] }}</span>
+                        <img src="{{ Storage::url( $data['profile'][0]['file'] ) }}" class="l-light d-inline-block" height="50" alt="">
+                        <span class=' d-inline-block' style="color : #6dc77a ;" >{{$data['profile'][0]['name'] }}</span>
                     </a>
                 </div>
 
@@ -71,7 +71,10 @@
                         <li class="has-submenu parent-parent-menu-item">
                             <a href="{{ route('indexproduct') }}">محصولات </a></span>
                         </li>
-                            <li class="has-submenu parent-parent-menu-item">
+                        <li class="has-submenu parent-parent-menu-item">
+                            <a href="{{ route('projectindex') }}">پروژه ها </a></span>
+                        </li>
+                        <li class="has-submenu parent-parent-menu-item">
                             <a href="{{ route('article') }}">مقالات  </a></span>
                         </li>
                         <li class="has-submenu parent-menu-item">

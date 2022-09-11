@@ -27,7 +27,7 @@ class StoreArticleRequest extends FormRequest
            'title'=>'string|required',
            'slug'=>'string|sometimes',
            'body'=>'string|required',
-           'File'=>'image|sometimes',
+           'File.*'=>'image|sometimes',
            'group_id'=>'string|required',
            'status'=>'string|in:draft,published,deleted|required',
            'id'=>'sometimes',

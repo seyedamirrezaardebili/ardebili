@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->longtext('File')->nullable();
+            $table->json('File')->nullable();
             $table->foreignIdFor(Group::class);
             $table->string('title')->nullable();
             $table->string('name')->nullable();

@@ -59,7 +59,7 @@
       <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('index') }}">
         <img
           src="{{ Storage::url( $data['profile'][0]['file'] ) }}"
-          height="15"
+          height="50"
           alt="MDB Logo"
           loading="lazy"
         />
@@ -77,6 +77,10 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('indexproduct') }}">محصولات</a>
+        </li>
+
+       <li class="nav-item">
+          <a class="nav-link" href="{{ route('projectindex') }}"> پروژه ها </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('article') }}">مقالات</a>

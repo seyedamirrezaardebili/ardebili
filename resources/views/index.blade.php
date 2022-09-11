@@ -54,14 +54,18 @@
                             </a>
 
                         </div><!--end col-->
+
                     @endforeach
                 </div><!--end row-->
             </div><!--end container-->
+            <br>
+            <br>
+            <br>
             <div class="container mt-100 mt-60">
                 <div class="row align-items-center ">
-                    <div class="col-lg-5 col-md-5">
+                    <div class="col-lg-5 col-md-5 d-flex " >
                         @foreach($data['movie'] as $file)
-                                <div class="position-relative">
+                         <div class="position-relative mx-20">
                                     <div class="play-icon">
                                         <a href="#!" data-type="youtube" data-id="yba7hPeTSjk" class="play-btn lightbox">
                                             <video width="320" height="240" controls class="px-4">
@@ -70,14 +74,13 @@
                                             </video>
                                         </a>
                                     </div>
-                                </div>
-
+                        </div>
                     </div><!--end col-->
 
-                    <div class="col-lg-7 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0 px-4">
+                    <div class="col-lg-7  col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0 px-4 ">
                         <div class="section-title ms-lg-4">
                             <h4 class="title mb-4">{{ $file['name'] }}</h4>
-                            <p class="text-muted"> {{ $file['ti'] }} </p>
+                            <p class="text-muted"> {{ $file['title'] }} </p>
                             <ul class="list-unstyled text-muted" >
                                 <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>{{ $file['text1'] }}</li>
                                 <li class="mb-0"><span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span> {{ $file['text2'] }}</li>
@@ -88,6 +91,9 @@
                     @endforeach
                 </div><!--end row-->
             </div><!--end container-->
+            <br>
+            <br>
+            <br>
             <div class="container mt-100 mt-60">
                 <div class="row">
                     @foreach($data['crop'] as $key=>$file)

@@ -55,15 +55,19 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-
         $input=$request->validated();
         if ($request->has('File')){
-            $year = Carbon::now()->year;
-            $month = Carbon::now()->month;
-            $day = Carbon::now()->day;
-            $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp();
-            $path=Storage::put($date,$request->file('File'));
-            $input['File']=$path;
+            
+            foreach($request->file()['File'] as $key=>$file){
+                $year = Carbon::now()->year;
+                $month = Carbon::now()->month;
+                $day = Carbon::now()->day;
+                $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp();
+                $path=Storage::put($date,$file);
+                $input['Files'][]=$path;
+            }
+            $input['File']=json_encode($input['Files']);
+            unset($input['Files']);
         }
         $data=$this->articleModel->store($input);
         return redirect('adminpanel/article')->with('data',$data);
@@ -111,12 +115,17 @@ class ArticleController extends Controller
         $input =$request->validated();
         unset($input['name']);
         if ($request->has('File')){
-            $year = Carbon::now()->year;
-            $month = Carbon::now()->month;
-            $day = Carbon::now()->day;
-            $date = 'images/article/'.$year . '-' . $month . '-' . $day. generate_otp(16);
-            $path=Storage::put($date,$request->file('File'));
-            $input['File']=$path;
+             
+            foreach($request->file()['File'] as $key=>$file){
+                $year = Carbon::now()->year;
+                $month = Carbon::now()->month;
+                $day = Carbon::now()->day;
+                $date = 'images/file/'.$year . '-' . $month . '-' . $day. generate_otp();
+                $path=Storage::put($date,$file);
+                $input['Files'][]=$path;
+            }
+            $input['File']=json_encode($input['Files']);
+            unset($input['Files']);
         }
         $this->articleModel->updateAndFetch($request->id,$input);
         return redirect()->route('adminpanel.article');

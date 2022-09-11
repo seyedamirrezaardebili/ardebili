@@ -22,7 +22,7 @@
                 <div class="col-10">
                     <div class="mb-3" >
                         <label for="File" class="form-label">  عکس  را بارگذاری کنید</label>
-                        <input class="form-control" type="File" id="File" name="File" >
+                        <input class="form-control" type="File" id="File" name="File[]" multiple >
                     </div>
                 </div>
             </div>

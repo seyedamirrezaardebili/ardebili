@@ -13,6 +13,7 @@ use App\Models\massage;
 use App\Models\movie;
 use App\Models\post;
 use App\Models\profile;
+use App\Models\project;
 
 class IndexController extends Controller
 {
@@ -24,14 +25,16 @@ class IndexController extends Controller
     protected post $postModel;
     protected profile $profileModel;
     protected movie $movieModel;
+    protected project $projectModel;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct( movie $movieModel ,Article $articleModel , crop $cropModel , File $fileModel ,Group $groupModel,massage $massageModel ,post $postModel ,profile $profileModel)
+    public function __construct(project $projectModel, movie $movieModel ,Article $articleModel , crop $cropModel , File $fileModel ,Group $groupModel,massage $massageModel ,post $postModel ,profile $profileModel)
     {
+        $this->projectModel=$projectModel;
         $this->articleModel=$articleModel;
         $this->cropModel=$cropModel;
         $this->fileModel=$fileModel;
@@ -96,5 +99,14 @@ class IndexController extends Controller
         $data['file']=$this->fileModel->query()->where('status','published')->get();
         return view('aboutus')->with('data',$data);
     }
+    public function projectshow()
+    {
+        $data['project']=$this->projectModel->query()->where('status','published')->paginate(16);
+        $data['file']=$this->fileModel->query()->where('status','published')->get();
+        $data['gruop']=$this->groupModel->query()->where('status','published')->get();
+        $data['profile']=$this->profileModel->all();
+        return view('projectShow')->with('data',$data);
+    }
+
 
 }
